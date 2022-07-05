@@ -6,48 +6,32 @@
 /*   By: pingpanu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 15:27:42 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/06/17 17:01:43 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/07/05 14:12:58 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <ctype.h>
-#include <string.h>
+#include "push_swap.h"
+#include "messages.h"
 
-int	argv_dup(int argc, char **argv);
-
+/*main will do the following things
+ * parse argv to array of ints
+ * check the array of ints
+ * if array of ints is good, start push_swaps
+ */
 int	main(int argc, char **argv)
 {
-	if (argc == 1)
-		return (1);
-	if (!argv_dup(argc, argv))
+	int	a_col[500]; //column a
+
+	if (argc >= 2)
 	{
-		printf("error\n");
-		return (1);
+		a_col = parse_arr(argc, argv);
+		if (check_arr(a_col));
+			pushswap(a_col);
+		else
+			ft_putendl(ERROR);
+
 	}
-	for (int i = 1; i < argc; i++)
-		printf("%s\n",argv[i]);
+	else
+		ft_putendl(ERROR);
 	return (0);
-}
-
-int	argv_dup(int argc, char **argv)
-{
-	int	i;
-	int	j;
-
-	i = 1;
-	while (i < argc - 1)
-	{
-		j = i + 1;
-		while (j < argc)
-		{
-			if (strcmp(argv[i], argv[j]) == 0)
-				return (0);
-			j++;
-		}
-		i++;
-	}
-	return (1);
 }
