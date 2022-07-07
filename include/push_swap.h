@@ -6,7 +6,7 @@
 /*   By: pingpanu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 13:23:19 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/07/07 20:37:20 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/07/07 22:06:33 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 /*include headers*/
 # include <stdlib.h>
-# include "libft.h"
+# include "../libft/libft.h"
 
 /*column struct including
  * a_col: array of int a
@@ -34,5 +34,8 @@ typedef struct	s_stack
 	size_t	size_b;
 	size_t	size_sub;
 }	t_stack;
+
+int	main(int argc, char **argv);
+char	**check_argvs(int argc, char **argv, int *size);
 
 #endif

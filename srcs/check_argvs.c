@@ -5,48 +5,69 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pingpanu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/07 19:57:47 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/07/07 20:09:18 by pingpanu         ###   ########.fr       */
+/*   Created: 2022/07/07 21:29:41 by pingpanu          #+#    #+#             */
+/*   Updated: 2022/07/07 21:59:06 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
-#include "libft.h"
+#include "push_swap.h"
 
-int	check_dups(char	**nbr, int mode)
+static char	**get_nbr(int argc, char **argv)
+{
+	char	**nbr;
+	int	i;
+
+	nbr = (char**)ft_calloc(1, (argc - 1));
+	if (!nbr)
+		return (NULL);
+	i = 0;
+	while (i < argc - 1)
+	{
+		nbr[i] = argv[i + 1];
+		i++;
+	}
+	return (nbr);
+}	
+
+static int	check_digit(char **nbr)
 {
 	int	i;
 	int	j;
 
-	i = 1;
-	if (mode == 0)
-		i = 0;
-	while (nbr[i])i
+	i = 0;
+	while (nbr[i])
 	{
-		j = i + 1;
-		while (*nbr[j])
+		j = 0;
+		while (nbr[i][j])
 		{
-			if (
+			if (nbr[i][j] == '-')
+				j++;
+			if (ft_isdigit(nbr[i][j]))
+				return (0);
+			j++;
+		}
+		i++;
+	}	
+	return (1);
+}
 
-int	check_argvs(int argc, char **argv, t_stack *stack)
+char	**check_argvs(int argc, char **argv, int *size)
 {
 	char	**nbr;
-	int	mode;
+	int	j;
 
 	if (argc == 2)
-	{
 		nbr = ft_split(argv[1], ' ');
-		mode = 0;
-	}
 	else
+		nbr = get_nbr(argc, argv);
+	if (!check_digit(nbr))
+		return (NULL);
+	while (nbr[size])
 	{
-		nbr = argv;
-		mode = 1;
+		j = size + 1;
+		if (ft_strcmp(nbr[size], nbr[j])
+			return (NULL);
+		size++;
 	}
-	if (!check_dups(nbr, mode))
-		return (0);
-	else if (!check_digits(nbr, mode))
-		return (0);
-	else
-		return (1);
+	return (nbr);
 }
