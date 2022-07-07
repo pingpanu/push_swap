@@ -1,17 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_arr.c                                        :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pingpanu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/05 14:06:41 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/07/05 14:12:45 by pingpanu         ###   ########.fr       */
+/*   Created: 2022/02/28 22:19:00 by pingpanu          #+#    #+#             */
+/*   Updated: 2022/02/28 22:19:02 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-int	*parse_arr(int argc, char **argv)
+int	ft_isdigit(int c)
 {
-	int	i; //index to argvs
+	if (c >= '0' && c <= '9')
+		return (1);
+	else
+		return (0);
+}

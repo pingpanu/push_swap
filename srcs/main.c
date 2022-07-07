@@ -6,32 +6,48 @@
 /*   By: pingpanu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 15:27:42 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/07/05 14:12:58 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/07/07 20:36:14 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "messages.h"
+#include "libft.h"
 
 /*main will do the following things
- * parse argv to array of ints
+ * check if argv worked
  * check the array of ints
  * if array of ints is good, start push_swaps
  */
+
+static void	check_
+
 int	main(int argc, char **argv)
 {
-	int	a_col[500]; //column a
+	t_stack	*stack;
+	char	**nbr;
 
-	if (argc >= 2)
+	if (argc == 1)
 	{
-		a_col = parse_arr(argc, argv);
-		if (check_arr(a_col));
-			pushswap(a_col);
-		else
-			ft_putendl(ERROR);
-
+		ft_putendl_fd("ERROR", 1);
+		return (0);
+	}
+	stack = ft_malloc(sizeof(t_stack));
+	if (!stack)
+	{
+		ft_putendl_fd("ERROR", 1);
+		return (0);
+	}
+	if (argc == 2)
+	{
+		nbr = ft_split(argv[1], ' ');
+		stack = to_stack(nbr, 1);
 	}
 	else
-		ft_putendl(ERROR);
+	{
+		nbr = argv;
+		stack = to_stack(nbr, 0);
+	}
+	do_swap(stack);
+	free(stack);
 	return (0);
 }

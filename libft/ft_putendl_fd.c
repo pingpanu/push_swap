@@ -1,38 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pingpanu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/05 13:23:19 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/07/07 20:37:20 by pingpanu         ###   ########.fr       */
+/*   Created: 2022/02/28 22:21:40 by pingpanu          #+#    #+#             */
+/*   Updated: 2022/03/05 12:24:40 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-/*include headers*/
-# include <stdlib.h>
-# include "libft.h"
-
-/*column struct including
- * a_col: array of int a
- * b_col: aray of int b
- * sub: array of sub
- * size_a: size of a_col
- * size_b: size of b_col
- * size_sub: size of sub
- */
-typedef struct	s_stack
+void	ft_putendl_fd(char *s, int fd)
 {
-	int	*a_col;
-	int	*b_col;
-	int	*sub;
-	size_t	size_a;
-	size_t	size_b;
-	size_t	size_sub;
-}	t_stack;
-
-#endif
+	if (fd >= 0 && s)
+	{
+		ft_putstr_fd(s, fd);
+		write(fd, "\n", 1);
+	}
+}

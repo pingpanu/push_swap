@@ -1,38 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pingpanu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/05 13:23:19 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/07/07 20:37:20 by pingpanu         ###   ########.fr       */
+/*   Created: 2022/02/28 22:16:44 by pingpanu          #+#    #+#             */
+/*   Updated: 2022/03/06 11:39:22 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-/*include headers*/
-# include <stdlib.h>
-# include "libft.h"
-
-/*column struct including
- * a_col: array of int a
- * b_col: aray of int b
- * sub: array of sub
- * size_a: size of a_col
- * size_b: size of b_col
- * size_sub: size of sub
- */
-typedef struct	s_stack
+int	ft_atoi(const char *str)
 {
-	int	*a_col;
-	int	*b_col;
-	int	*sub;
-	size_t	size_a;
-	size_t	size_b;
-	size_t	size_sub;
-}	t_stack;
+	int		res;
+	int		pos;
 
-#endif
+	res = 0;
+	pos = 1;
+	while ((*str >= 9 && *str <= 13) || *str == ' ')
+		str++;
+	if (*str == '+' || *str == '-')
+	{
+		if (*str == '-' || *(str + 1) == '-')
+			pos = -1;
+		str++;
+	}
+	while (*str >= '0' && *str <= '9')
+		res = res * 10 + (*str++ - '0');
+	return (res * pos);
+}
