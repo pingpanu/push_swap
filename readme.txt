@@ -1,24 +1,9 @@
 -- Introduction --
-  Push_swap is a program that replicate children toy called Rainbow tower.
-The program will rearrange part (pieces) in pillar A in ascending order from top to base.
-It have a constraint that no swapped pieces in pillar A or B in descending order.
-
-To put it simple, consider this 5 stacked tower
-
-A             B
-3
-2
-1
-5
-4
-
-You can't swap like this
-
-A             B
-              
-              5
-              1
-              2
-4             aa
-
-  This program is an introduction to algorithm in 42 Bangkok, and it must capable for handing more than 100 pieces and did it with as few steps as possible.
+  Push_swap is an introduction to sorting algorithm, but the sorting operation in limited.
+  In order to sort all member in ascending order, you are provided with two arrays; stack A and B.
+  When the program started, it will create stack A with random numbers that never duplicate and within INT range.
+  The swap operations is limited to the following commands
+  1) swap [sa, sp, sr] = swap the array[0] to the array[1]
+  2) push [pa, pb] = push array[0] 
+  3) rotate [ra, rb, rr] = shift array[1] to array[0], array[0] will be array[last]
+  4) reverse rotate [rra, rrb, rrr] = shift array[0] to array[1], opposite to rotate.
