@@ -6,7 +6,7 @@
 /*   By: pingpanu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 13:23:19 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/07/07 22:06:33 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/07/07 22:08:49 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 /*include headers*/
 # include <stdlib.h>
-# include "../libft/libft.h"
+# include "libft.h"
 
 /*column struct including
  * a_col: array of int a

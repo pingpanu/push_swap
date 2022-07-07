@@ -1,40 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pingpanu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/16 15:27:42 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/07/07 22:37:13 by pingpanu         ###   ########.fr       */
+/*   Created: 2022/07/07 22:39:19 by pingpanu          #+#    #+#             */
+/*   Updated: 2022/07/07 22:48:57 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-#include <stdio.h>
-
-int	main(int argc, char **argv)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	t_stack	*stack;
-	char	**nbr;
-	int		size;
-
-	if (argc != 1)
+	while (*s1 && *s2 && *s1 == *s2)
 	{
-		size = 0;
-		nbr = check_argvs(argc, argv, &size);
-		if (nbr)
-		{
-			stack = to_stack(nbr, size);
-			if (stack)
-			{
-				do_swap(stack);
-				free(stack);
-				return (0);
-			}
-		}
+		s1++;
+		s2++;
 	}
-	ft_putendl_fd("ERROR");
-	return (0);
+	return ((unsigned char)(*s1) - (unsigned char)(*s2));
 }

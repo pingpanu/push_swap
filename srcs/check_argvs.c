@@ -6,7 +6,7 @@
 /*   By: pingpanu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 21:29:41 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/07/07 21:59:06 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/07/07 22:38:43 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ char	**check_argvs(int argc, char **argv, int *size)
 	while (nbr[size])
 	{
 		j = size + 1;
-		if (ft_strcmp(nbr[size], nbr[j])
+		if (ft_strcmp(nbr[size], nbr[j]))
 			return (NULL);
 		size++;
 	}
