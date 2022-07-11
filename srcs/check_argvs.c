@@ -6,7 +6,7 @@
 /*   By: pingpanu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 21:29:41 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/07/07 22:38:43 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/07/11 15:14:52 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,12 @@ char	**check_argvs(int argc, char **argv, int *size)
 		nbr = get_nbr(argc, argv);
 	if (!check_digit(nbr))
 		return (NULL);
-	while (nbr[size])
+	while (nbr[*size + 1] != NULL)
 	{
-		j = size + 1;
-		if (ft_strcmp(nbr[size], nbr[j]))
+		j = *size + 1;
+		if (ft_strcmp(nbr[*size], nbr[j]))
 			return (NULL);
-		size++;
+		(*size)++;
 	}
 	return (nbr);
 }

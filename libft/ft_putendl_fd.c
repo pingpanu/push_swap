@@ -6,7 +6,7 @@
 /*   By: pingpanu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 22:21:40 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/03/05 12:24:40 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/07/11 15:25:51 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,11 @@ void	ft_putendl_fd(char *s, int fd)
 {
 	if (fd >= 0 && s)
 	{
-		ft_putstr_fd(s, fd);
+		while (*s)
+		{
+			write(fd, s, 1);
+			s++;
+		}
 		write(fd, "\n", 1);
 	}
 }

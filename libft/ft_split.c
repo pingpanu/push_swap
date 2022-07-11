@@ -6,7 +6,7 @@
 /*   By: pingpanu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 14:24:40 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/07/11 14:03:57 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/07/11 15:10:02 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,20 +103,4 @@ char	**ft_split(char const *s, char c)
 			return (ft_error(split));
 	}
 	return (split);
-}
-
-int 	main(void)
-{
-	char	*s = "Lorem Ipsum dolor sit amet";
-	char	c = ' ';
-	char	**split;
-	int	i = 0;
-
-	split = ft_split(s, c);
-	while (split[i] != NULL)
-	{
-		printf("%s\n", split[i]);
-		i++;
-	}
-	return (0);
 }
