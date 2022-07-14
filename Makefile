@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
+#    By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/11 14:49:15 by pingpanu          #+#    #+#              #
-#    Updated: 2022/07/14 10:31:05 by user             ###   ########.fr        #
+#    Updated: 2022/07/14 14:12:31 by pingpanu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 NAME = push_swap
 CC = gcc
 FLAGS = -Wall -Wextra -Werror
-SDIR = srcs
+SDIR = srcs/
 LIB = libft
 INC = include
 
@@ -28,27 +28,28 @@ MAGENTA = '\033[0;35m'
 CYAN = '\033[0;36m'
 
 #sources
-SRC = 	srcs/main.c \
-	srcs/check_argvs.c \
+SRC_NAME = 	main.c \
+		check_argvs.c \
 
-OBJ = $(SRC.c=.o)
+SRCS = $(addprefix $(SDIR), $(SRC_NAME))
+OBJS = $(addprefix $(SDIR), $(SRC_NAME:.c=.o))
 
 all : $(NAME)
 
-$(NAME) : $(OBJ)
+$(NAME) : $(OBJS)
 	 @ echo "$(YELLOW)Make libft.a library$(DEFCO)"
 	 @ make -C $(LIB)
 	 @ echo "$(GREEN)libft.a created$(DEFCO)"
-	 @ $(CC) $(FLAGS) $(OBJ) -L $(LIB) -lft -I $(INC) -o $(NAME)
+	 @ $(CC) $(FLAGS) $(OBJS) -L $(LIB) -lft -I $(INC) -o $(NAME)
 	 @ echo "$(GREEN)$(NAME) created$(DEFCO)" 
 
-%.o : %.c
-	 @ $(CC) -c $(FLAGS) $(SRC) -I $(INC) 
+$(SDIR)%.o : $(SDIR)%.c
+	 @ $(CC) $(FLAGS) -c $< -o $@ -I $(INC) 
 
 clean:
 	 @ make clean -C $(LIB)
 	 @ echo "$(YELLOW)libft.a removed$(DEFCO)"
-	 @ rm $(OBJ) 
+	 @ rm $(OBJS) 
 	 @ echo "$(GREEN)Object files removed$(DEFCO)"
 
 fclean: clean

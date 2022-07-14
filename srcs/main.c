@@ -6,36 +6,34 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 15:27:42 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/07/14 11:35:38 by user             ###   ########.fr       */
+/*   Updated: 2022/07/14 15:51:59 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-#include <stdio.h>
+/*to do list
+ * 1) parse argv to t_stack, if nbr is not in int size, return null
+ * 2) check t_stack int array
+ * 3) if t_stack is good, start push_swap, if not free t_stack and exit
+ * 4) end 
+ */
 int	main(int argc, char **argv)
 {
-	//t_stack	*stack;
-	char	**nbr;
-	int		size;
+	t_stack	*stack;
 
 	if (argc != 1)
 	{
 		size = 0;
-		nbr = check_argvs(argc, argv, &size);
-		if (nbr)
+		parse(t_stack, argc, argv);
+		if(!check_stack(t_stack))
 		{
-			for (int i = 0; nbr[i] != NULL; i++)
-				printf("%s\n", nbr[i]);
-			/*stack = to_stack(nbr, size);
-			if (stack)
-			{
-				do_swap(stack);
-				free(stack);s
-				return (0);
-			}*/
-			return (0);
+			free(t_stack);
+			ft_putendl_fd("ERROR",1)
 		}
+		else
+			pushswap(t_stack);
+		return (0);
 	}
 	ft_putendl_fd("ERROR", 1);
 	return (0);
