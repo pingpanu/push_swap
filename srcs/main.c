@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 15:27:42 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/07/14 15:51:59 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/07/14 15:56:53 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(int argc, char **argv)
 	if (argc != 1)
 	{
 		size = 0;
-		parse(t_stack, argc, argv);
+		parse_argv(t_stack, argc, argv);
 		if(!check_stack(t_stack))
 		{
 			free(t_stack);

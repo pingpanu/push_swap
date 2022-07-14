@@ -6,7 +6,7 @@
 /*   By: pingpanu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 13:23:19 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/07/07 22:08:49 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/07/14 16:22:49 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,8 @@ typedef struct	s_stack
 {
 	int	*a_col;
 	int	*b_col;
-	int	*sub;
 	size_t	size_a;
 	size_t	size_b;
-	size_t	size_sub;
 }	t_stack;
 
 int	main(int argc, char **argv);
