@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 15:27:42 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/07/11 15:32:19 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/07/14 11:35:38 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ int	main(int argc, char **argv)
 				free(stack);s
 				return (0);
 			}*/
+			return (0);
 		}
-		return (0);
 	}
 	ft_putendl_fd("ERROR", 1);
 	return (0);

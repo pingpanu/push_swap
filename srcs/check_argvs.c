@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_argvs.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pingpanu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 21:29:41 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/07/11 15:14:52 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/07/14 11:37:27 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static char	**get_nbr(int argc, char **argv)
 	char	**nbr;
 	int	i;
 
-	nbr = (char**)ft_calloc(1, (argc - 1));
+	nbr = (char**)ft_calloc(1, (argc));
 	if (!nbr)
 		return (NULL);
 	i = 0;

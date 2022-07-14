@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+         #
+#    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/11 14:49:15 by pingpanu          #+#    #+#              #
-#    Updated: 2022/07/11 15:38:36 by pingpanu         ###   ########.fr        #
+#    Updated: 2022/07/14 10:31:05 by user             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,7 @@ $(NAME) : $(OBJ)
 	 @ $(CC) $(FLAGS) $(OBJ) -L $(LIB) -lft -I $(INC) -o $(NAME)
 	 @ echo "$(GREEN)$(NAME) created$(DEFCO)" 
 
-%$(SRC).o : %.c
+%.o : %.c
 	 @ $(CC) -c $(FLAGS) $(SRC) -I $(INC) 
 
 clean:
