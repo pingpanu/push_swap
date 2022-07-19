@@ -3,38 +3,60 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: pingpanu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/16 15:27:42 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/07/14 15:56:53 by pingpanu         ###   ########.fr       */
+/*   Created: 2022/07/19 11:36:00 by pingpanu          #+#    #+#             */
+/*   Updated: 2022/07/19 11:54:57 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*to do list
- * 1) parse argv to t_stack, if nbr is not in int size, return null
- * 2) check t_stack int array
- * 3) if t_stack is good, start push_swap, if not free t_stack and exit
- * 4) end 
+/*To do list
+ * 1) Check if argv is equal 1, if yes return error.
+ * 2) Check if argv have only digit, if no return error.
+ * 3) Parse argv to struct.
+ * 4) Check if struct dont have the following.
+ * 	4.1) Number larger than MAX_INT or smaller than MIN_INT
+ * 	4.2) Duplicate value
+ * 5) Sort the stack by the following rule.
+ * 	5.1) Less than 5 use fixed algorithm.
+ * 	5.2) More than 5 but less than 100 use insertion sort.
+ * 	5.3) More or equal 100 use insertionn sort.
+ * 6) End
  */
+
+/*puterr_mes is a function to show error message on screen*/
+static void	puterr_mes(char *message)
+{
+	ft_putenld(message, 1);
+	return (1);
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack	*stack;
+	int		mode;
 
 	if (argc != 1)
 	{
-		size = 0;
-		parse_argv(t_stack, argc, argv);
-		if(!check_stack(t_stack))
+		mode = 1;
+		if (argc == 2)
+			mode = 0;
+		if (check_argvs(mode, argv))
 		{
-			free(t_stack);
-			ft_putendl_fd("ERROR",1)
+			stack = (t_stack *)ft_calloc(1, sizeof(t_stack));
+			if (!stack)
+				puterr_mes("Memory allocation failed");
+			parse_argv(stack, argv, mode);
+			if (check_stack(stack) == 2)
+				puterr_mes("Have duplicate value");
+			else if (check_stack(stack) == 1)
+				puterr_mes("Value not within int range");
+			pushswap(stack);
+			return (0);
 		}
-		else
-			pushswap(t_stack);
-		return (0);
+		puterr_mes("Arguments have nonnumeric characters");
 	}
-	ft_putendl_fd("ERROR", 1);
-	return (0);
+	puterr_mes("Too few arguments");
 }
