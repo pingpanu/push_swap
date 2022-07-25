@@ -3,44 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   utils_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 21:29:41 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/07/25 11:51:14 by user             ###   ########.fr       */
+/*   Updated: 2022/07/25 17:17:37 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	checknumeric(int argc, char **argv)
+int	checknumeric(char *str)
 {
-	if (argc == 2)
+	while(*str)
 	{
-		while (*argv[1])
-		{
-			if (!ft_isdigit(*argv[1]) && *argv[1] != ' ' && *argv[1] != '-')
-				return (0);
-			argv[1]++;
-		}
-	}
-	else
-	{
-		while (argc-- > 1)
-		{
-			while(*argv[argc])
-			{
-				if (!ft_isdigit(*argv[argc]) && *argv[argc] != '-')
-					return (0);
-				argv[argc]++;
-			}
-		}
+		if ((*str >= 9 && *str <= 13) || *str == 32)
+			str++;
+		else if (!ft_isdigit(*str) && *str != '-')
+			return (0);
+		str++;
 	}
 	return (1);
 }
 
-int		checkvalidint(int argc, char **argv, t_stack *stacks)
+int		checkvalidint(t_stack *temp, char *nbr)
 {
-	
+	char	*check;
+
+	check = ft_itoa(temp->data);
+	if (!check || ft_strcmp(check, nbr) != 0)
+		return (0);
 }
 
 /*for test only

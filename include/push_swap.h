@@ -6,7 +6,7 @@
 /*   By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 13:23:19 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/07/25 14:36:39 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/07/25 17:17:37 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,10 @@ typedef struct s_minmax
 	int		max;
 }	t_minmax;
 
-/*this struct is for column*/
-typedef struct s_stack
-{
-	struct s_node	*a;
-	struct s_node	*b;
-}	t_stack;
-
 int		push_swap(int argc, char **argv);
 /*these function are in utils_check.c*/
-int		checknumeric(int argc, char **argv);
-int		checkvalidint(int argc, char **argv, t_stack *stacks);
+int		checknumeric(char *str);
+/*these function are in parse_argv.c*/
+int		argv_split(char **arr, t_stack **a);
+int		argv_nor(int size, char **arr, t_stack **a);
 #endif

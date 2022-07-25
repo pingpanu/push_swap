@@ -6,7 +6,7 @@
 /*   By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 23:02:42 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/07/25 14:46:32 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/07/25 17:03:31 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,18 @@
 # include <limits.h>
 
 /*bonus part*/
-typedef struct s_node
+typedef struct s_stack
 {
 	int				data;
-	struct s_node	*next;
-}				t_node;
+	struct s_stack	*next;
+}				t_stack;
 
-t_node	*ft_lstnew(int input);
-t_node	*ft_lstlast(t_node *lst);
-void	ft_lstadd_back(t_node **lst, t_node *new);
-void	ft_lstdelone(t_node *lst, void (*del)(void *));
-void	ft_lstclear(t_node **lst, void (*del)(void *));
-int		ft_lstsize(t_node *lst);
+t_stack	*ft_lstnew(int input);
+t_stack	*ft_lstlast(t_stack *lst);
+void	ft_lstadd_back(t_stack **lst, t_stack *new);
+void	ft_lstdelone(t_stack *lst, void (*del)(void *));
+void	ft_lstclear(t_stack **lst, void (*del)(void *));
+int		ft_lstsize(t_stack *lst);
 /*character comparison*/
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
