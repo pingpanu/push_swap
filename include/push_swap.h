@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pingpanu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 13:23:19 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/07/14 16:22:49 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/07/25 11:51:13 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,30 @@
 # include <stdlib.h>
 # include "libft.h"
 
-/*column struct including
- * a_col: array of int a
- * b_col: aray of int b
- * sub: array of sub
- * size_a: size of a_col
- * size_b: size of b_col
- * size_sub: size of sub
- */
-typedef struct	s_stack
+/*this struct is an elements in column*/
+typedef struct	s_node
 {
-	int	*a_col;
-	int	*b_col;
-	size_t	size_a;
-	size_t	size_b;
+	int		content;
+	struct	s_node	*link;
+}	t_node;
+
+/*this struct is for analyzed in quicksort*/
+typedef struct s_minmax
+{
+	int		min;
+	int		max;
+}	t_minmax;
+
+
+/*this struct is for column*/
+typedef struct s_stack
+{
+	struct s_node	*a;
+	struct s_node	*b;
 }	t_stack;
 
-int	main(int argc, char **argv);
-char	**check_argvs(int argc, char **argv, int *size);
-
+int		push_swap(int argc, char **argv);
+/*these function are in utils_check.c*/
+int		checknumeric(int argc, char **argv);
+int		checkvalidint(int argc, char **argv, t_stack *stacks);
 #endif
