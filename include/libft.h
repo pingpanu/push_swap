@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pingpanu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 23:02:42 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/07/11 15:16:12 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/07/25 14:46:32 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,18 @@
 # include <limits.h>
 
 /*bonus part*/
-typedef struct s_list
+typedef struct s_node
 {
-	char			*content;
-	struct s_list	*next;
-}				t_list;
+	int				data;
+	struct s_node	*next;
+}				t_node;
 
-t_list	*ft_lstnew(void *content);
-t_list	*ft_lstlast(t_list *lst);
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-void	ft_lstadd_front(t_list **lst, t_list *new);
-void	ft_lstadd_back(t_list **lst, t_list *new);
-void	ft_lstdelone(t_list *lst, void (*del)(void *));
-void	ft_lstclear(t_list **lst, void (*del)(void *));
-void	ft_lstiter(t_list *lst, void (*f)(void *));
-int		ft_lstsize(t_list *lst);
+t_node	*ft_lstnew(int input);
+t_node	*ft_lstlast(t_node *lst);
+void	ft_lstadd_back(t_node **lst, t_node *new);
+void	ft_lstdelone(t_node *lst, void (*del)(void *));
+void	ft_lstclear(t_node **lst, void (*del)(void *));
+int		ft_lstsize(t_node *lst);
 /*character comparison*/
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);

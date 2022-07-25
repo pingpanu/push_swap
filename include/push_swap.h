@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 13:23:19 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/07/25 11:51:13 by user             ###   ########.fr       */
+/*   Updated: 2022/07/25 14:36:39 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,12 @@
 # include <stdlib.h>
 # include "libft.h"
 
-/*this struct is an elements in column*/
-typedef struct	s_node
-{
-	int		content;
-	struct	s_node	*link;
-}	t_node;
-
 /*this struct is for analyzed in quicksort*/
 typedef struct s_minmax
 {
 	int		min;
 	int		max;
 }	t_minmax;
-
 
 /*this struct is for column*/
 typedef struct s_stack

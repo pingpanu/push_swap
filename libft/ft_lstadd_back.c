@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pingpanu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 16:44:33 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/03/04 16:45:55 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/07/25 14:47:05 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_lstadd_back(t_node **lst, t_node *new)
 {
-	t_list	*tmp;
+	t_node	*tmp;
 
 	if (lst && new)
 	{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 11:36:00 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/07/25 11:50:54 by user             ###   ########.fr       */
+/*   Updated: 2022/07/25 14:31:57 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,8 @@ int	push_swap(int argc, char **argv)
 			ft_putendl_fd("Error", 2);
 			exit (1);
 		}
-		stacks->a = NULL;
-		stacks->b = NULL;
-		if (!checkvalidint(argc, argv, &stacks))
-			error_exit(1);
-		if (!check_stack(&stacks))
-			swap_sort(&stacks);
+		if (!parse_argv(argv, &stacks))
+			error_exit(stacks);
 		free_stack(&stacks);
 	}
 	exit (1);
@@ -58,10 +54,11 @@ void	error_exit(t_stack *stacks)
 
 static void		free_stack(t_stack *stacks)
 {
-	ft_lstclear(stacks->a, void);
-	ft_lstclear(stacks->b, void);
-	stacks->a = NULL;
-	stacks->b = NULL;
-}
+	t_node	*temp;
 
-static int		check_stack(t_stack *stacks);
+	if (!stacks)
+		return ;
+	ft_lstclear(stacks->a, free);
+	ft_lstclear(stacks->b, free);
+	free (stacks);
+}
