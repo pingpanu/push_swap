@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 11:36:00 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/07/25 17:03:32 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/07/26 20:55:37 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,23 @@
  */
 
 static void		free_stack(t_stack *a, t_stack *b);
-static int		check_sort(t_stack *stack);
+//static int		check_sort(t_stack *stack);
 
-int		push_swap(int argc, char **argv)
+/*this is for test only*/
+#include <stdio.h>
+static void	print_data(t_stack *head)
+{
+	if (head == NULL)
+		printf("The stack is empty");
+	while (head != NULL)
+	{
+		printf("%d->", head->data);
+		head = head->next;
+	}
+	printf("\n");
+}
+
+int		main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
@@ -39,17 +53,21 @@ int		push_swap(int argc, char **argv)
 		if (argc == 2)
 		{
 			if (!argv_split(argv + 1, &a))
-				error_exit(a, b);
+				//error_exit(a, b);
+				return (1);
 		}
 		else
 		{
 			if (!argv_nor(argc - 1, argv + 1, &a))
-				error_exit(a, b);
+				//error_exit(a, b);
+				return (1);
 		}
 		/*if (!check_sort(a))
 			swap_sort(&a, &b);*/
-		free_stack(a, b);
-		exit (0);
+		print_data(a);
+		print_data(b);
+		//free_stack(a, b);
+		return (0);
 	}
 }
 
@@ -62,8 +80,8 @@ void	error_exit(t_stack *a, t_stack *b)
 
 static void		free_stack(t_stack *a, t_stack *b)
 {
-	ft_lstclear(a, free);
-	ft_lstclear(b, free);
+	ft_lstclear(&a);
+	ft_lstclear(&b);
 	a = NULL;
 	b = NULL;
 }

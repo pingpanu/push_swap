@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+         #
+#    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/11 14:49:15 by pingpanu          #+#    #+#              #
-#    Updated: 2022/07/14 14:12:31 by pingpanu         ###   ########.fr        #
+#    Updated: 2022/07/26 11:54:58 by user             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,8 +28,9 @@ MAGENTA = '\033[0;35m'
 CYAN = '\033[0;36m'
 
 #sources
-SRC_NAME = 	main.c \
-		check_argvs.c \
+SRC_NAME = 	push_swap.c \
+			parse_argv.c \
+			utils_check.c \
 
 SRCS = $(addprefix $(SDIR), $(SRC_NAME))
 OBJS = $(addprefix $(SDIR), $(SRC_NAME:.c=.o))

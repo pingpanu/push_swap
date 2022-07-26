@@ -3,20 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 16:46:14 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/07/25 14:53:58 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/07/26 11:53:38 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdelone(t_node *lst, void (*del)(void*))
+void	ft_lstdelone(t_stack *lst)
 {
-	if (lst && del)
-	{
-		del(lst->data);
+	if (lst)
 		free(lst);
-	}
 }

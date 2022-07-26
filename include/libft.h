@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 23:02:42 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/07/25 17:03:31 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/07/26 14:07:34 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,23 +27,13 @@ typedef struct s_stack
 t_stack	*ft_lstnew(int input);
 t_stack	*ft_lstlast(t_stack *lst);
 void	ft_lstadd_back(t_stack **lst, t_stack *new);
-void	ft_lstdelone(t_stack *lst, void (*del)(void *));
-void	ft_lstclear(t_stack **lst, void (*del)(void *));
+void	ft_lstdelone(t_stack *lst);
+void	ft_lstclear(t_stack **lst);
 int		ft_lstsize(t_stack *lst);
 /*character comparison*/
-int		ft_isalpha(int c);
 int		ft_isdigit(int c);
-int		ft_isalnum(int c);
-int		ft_isascii(int c);
-int		ft_isprint(int c);
-int		ft_toupper(int c);
-int		ft_tolower(int c);
-/*string function*/
 int		ft_atoi(const char *str);
 int		ft_strcmp(const char *s1, const char *s2);
-char	*ft_strchr(const char *s, int c);
-char	*ft_strrchr(const char *s, int c);
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 size_t	ft_strlen(const char *s);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);

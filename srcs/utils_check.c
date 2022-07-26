@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   utils_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 21:29:41 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/07/25 17:17:37 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/07/26 16:46:31 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 int	checknumeric(char *str)
 {
@@ -25,15 +26,34 @@ int	checknumeric(char *str)
 	return (1);
 }
 
-int		checkvalidint(t_stack *temp, char *nbr)
+int		checkvalidint(char *nbr, t_stack *temp)
 {
 	char	*check;
 
+	printf("%s %d", nbr, temp->data);
 	check = ft_itoa(temp->data);
-	if (!check || ft_strcmp(check, nbr) != 0)
+	if (ft_strcmp(check, nbr) != 0)
+	{
+		free(check);
 		return (0);
+	}
+	free(check);
+	return (1);
 }
 
+int      checkdup(t_stack *lst)
+{
+    t_stack *check;
+
+    check = ft_lstlast(lst);
+    while (lst != check)
+    {
+        if (lst->data == check->data)
+            return (0);
+        lst = lst->next;
+    }
+	return (1);
+}
 /*for test only
 #include <stdio.h>
 int	main(int argc, char **argv)
