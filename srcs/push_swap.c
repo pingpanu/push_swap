@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 11:36:00 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/07/26 20:55:37 by user             ###   ########.fr       */
+/*   Updated: 2022/07/27 12:05:14 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
  * 6) End
  */
 
-static void		free_stack(t_stack *a, t_stack *b);
+static void		free_stack(t_stack **a, t_stack **b);
 //static int		check_sort(t_stack *stack);
 
 /*this is for test only*/
@@ -53,35 +53,33 @@ int		main(int argc, char **argv)
 		if (argc == 2)
 		{
 			if (!argv_split(argv + 1, &a))
-				//error_exit(a, b);
-				return (1);
+				error_exit(&a, &b);
 		}
 		else
 		{
 			if (!argv_nor(argc - 1, argv + 1, &a))
-				//error_exit(a, b);
-				return (1);
+				error_exit(&a, &b);
 		}
 		/*if (!check_sort(a))
 			swap_sort(&a, &b);*/
 		print_data(a);
 		print_data(b);
-		//free_stack(a, b);
-		return (0);
+		free_stack(&a, &b);
+		exit(0);
 	}
 }
 
-void	error_exit(t_stack *a, t_stack *b)
+void	error_exit(t_stack **a, t_stack **b)
 {
 	free_stack(a, b);
 	ft_putendl_fd("Error", 2);
 	exit(1);
 }
 
-static void		free_stack(t_stack *a, t_stack *b)
+static void		free_stack(t_stack **a, t_stack **b)
 {
-	ft_lstclear(&a);
-	ft_lstclear(&b);
+	ft_lstclear(a);
+	ft_lstclear(b);
 	a = NULL;
 	b = NULL;
 }

@@ -6,29 +6,27 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 19:57:47 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/07/26 20:42:35 by user             ###   ########.fr       */
+/*   Updated: 2022/07/27 12:07:34 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 static int      valid_integer(char *nbr, t_stack **a)
 {
     t_stack     *temp;
-    //char        *check;
+    char        *check;
 
     if (!checknumeric(nbr))
         return (0);
     temp = ft_lstnew(ft_atoi(nbr));
-    //printf("%d\n", temp->data);
-    /*check = ft_itoa(temp->data);
-    if (ft_strcmp(check, nbr) != 0)
+    check = ft_itoa(temp->data);
+    if (!temp || ft_strcmp(check, nbr) != 0)
     {
         free(check);
         return (0);
     }
-    free(check);*/
+    free(check);
     ft_lstadd_back(a, temp);
     return (1);
 }
