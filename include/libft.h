@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 23:02:42 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/07/27 11:59:18 by user             ###   ########.fr       */
+/*   Updated: 2022/07/29 22:12:02 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct s_stack
 
 t_stack	*ft_lstnew(int input);
 t_stack	*ft_lstlast(t_stack *lst);
+void	ft_lstadd_front(t_stack **lst, t_stack *new);
 void	ft_lstadd_back(t_stack **lst, t_stack *new);
 void	ft_lstdelone(t_stack *lst);
 void	ft_lstclear(t_stack **lst);

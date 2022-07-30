@@ -6,7 +6,7 @@
 #    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/05 23:00:53 by pingpanu          #+#    #+#              #
-#    Updated: 2022/07/26 14:10:44 by user             ###   ########.fr        #
+#    Updated: 2022/07/29 22:13:33 by user             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ SRC = ft_putchar_fd.c \
       ft_atoi.c \
       ft_itoa.c \
       ft_split.c \
+      ft_lstadd_front.c \
       ft_lstadd_back.c \
       ft_lstclear.c \
       ft_lstdelone.c \
