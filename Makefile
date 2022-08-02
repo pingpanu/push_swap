@@ -6,7 +6,7 @@
 #    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/11 14:49:15 by pingpanu          #+#    #+#              #
-#    Updated: 2022/07/30 23:05:06 by user             ###   ########.fr        #
+#    Updated: 2022/08/02 12:57:32 by pingpanu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,11 +31,11 @@ CYAN = '\033[0;36m'
 SRC_NAME = 	push_swap.c \
 			parse_argv.c \
 			utils_check.c \
-			sorting_ops.c \
-			push.c \
-			swap.c \
-			rotate.c \
-			r_rotate.c \
+		#	sorting_ops.c \
+		#	push.c \
+		#	swap.c \
+		#	rotate.c \
+		#	r_rotate.c \
 
 SRCS = $(addprefix $(SDIR), $(SRC_NAME))
 OBJS = $(addprefix $(SDIR), $(SRC_NAME:.c=.o))

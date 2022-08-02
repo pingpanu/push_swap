@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 11:36:00 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/08/01 22:50:29 by user             ###   ########.fr       */
+/*   Updated: 2022/08/02 15:25:37 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,21 +25,6 @@
  */
 
 static void		free_stack(t_stack **a, t_stack **b);
-//static int		check_sort(t_stack *stack);
-
-/*this is for test only*/
-#include <stdio.h>
-static void	print_data(t_stack *head)
-{
-	if (head == NULL)
-		printf("The stack is empty");
-	while (head != NULL)
-	{
-		printf("%d->", head->data);
-		head = head->next;
-	}
-	printf("\n");
-}
 
 int		main(int argc, char **argv)
 {
@@ -60,7 +45,8 @@ int		main(int argc, char **argv)
 			if (!argv_nor(argc - 1, argv + 1, &a))
 				error_exit(&a, &b);
 		}
-		sorting_ops(&a, &b);
+		if (!check_ascend(a))
+			sorting_ops(&a, &b);
 		//print_data(a);
 		//print_data(b);
 		free_stack(&a, &b);
@@ -82,15 +68,3 @@ static void		free_stack(t_stack **a, t_stack **b)
 	a = NULL;
 	b = NULL;
 }
-
-/*static int		check_sort(t_stack *a)
-{
-	while (a != NULL)
-	{
-		if (a->next != NULL)
-			if (a->data > a->next->data)
-				return (0);
-		a = a->next;
-	}
-	return (1);
-}*/
