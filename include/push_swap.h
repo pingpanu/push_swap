@@ -6,7 +6,7 @@
 /*   By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 13:23:19 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/08/02 15:25:34 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/08/02 16:15:13 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 /*include headers*/
 # include <stdlib.h>
+# include <limits.h>
 # include "libft.h"
 
 /*this struct is for analyzed in sort*/
@@ -22,7 +23,6 @@ typedef struct s_stack_param
 {
 	int		stack_size;
 	int		min[2];
-	int		med[2];
 	int		max[2];
 }	t_stack_param;
 

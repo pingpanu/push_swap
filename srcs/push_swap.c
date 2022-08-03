@@ -6,7 +6,7 @@
 /*   By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 11:36:00 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/08/02 15:25:37 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/08/03 15:49:43 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,7 @@ int		main(int argc, char **argv)
 			if (!argv_nor(argc - 1, argv + 1, &a))
 				error_exit(&a, &b);
 		}
-		if (!check_ascend(a))
-			sorting_ops(&a, &b);
+		sorting_ops(&a, &b);
 		//print_data(a);
 		//print_data(b);
 		free_stack(&a, &b);
