@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorting_ops.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 22:48:54 by user              #+#    #+#             */
-/*   Updated: 2022/08/03 15:51:58 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/08/04 22:39:16 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ void    sorting_ops(t_stack **a, t_stack **b)
         return ;
     else if (a_param.stack_size == 2)
         twin_sort(a);
-    else if (a_param.stack_size == 3) //insetion sort
-        tri_sort(a, a_param);
-    else if (a_param.stack_size > 3 && a_param.stack_size < 100)
-        insert_sort(a, b);
+    else if (a_param.stack_size > 2 && a_param.stack_size < 51)
+        //insertion sort
+    else if (a_param.stack_size > 50 && a_param.stack_size < 101)
+        //quick sort
     else
-        quick_sort(a, b); 
+        //super sort 
 }
