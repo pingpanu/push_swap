@@ -6,7 +6,7 @@
 /*   By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 21:29:41 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/08/02 14:32:07 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/08/05 17:09:10 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,33 @@ int      checkdup(t_stack *lst)
 	return (1);
 }
 
-int		check_ascend(t_stack **lst)
+int		check_descend(t_stack **lst)
 {
+	if (lst == NULL)
+		return (0);
 	while (*lst != NULL)
 	{
 		if ((*lst)->next != NULL)
+		{
+			if ((*lst)->data < (*lst)->next->data)
+				return (0);
+		}
+		*lst = (*lst)->next;
+	}
+	return (1);
+}
+
+int		check_ascend(t_stack **lst)
+{
+	if (lst == NULL)
+		return (0);
+	while (*lst != NULL)
+	{
+		if ((*lst)->next != NULL)
+		{
 			if ((*lst)->data > (*lst)->next->data)
 				return (0);
+		}
 		*lst = (*lst)->next;
 	}
 	return (1);

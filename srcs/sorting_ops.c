@@ -3,49 +3,87 @@
 /*                                                        :::      ::::::::   */
 /*   sorting_ops.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 22:48:54 by user              #+#    #+#             */
-/*   Updated: 2022/08/04 22:39:16 by user             ###   ########.fr       */
+/*   Updated: 2022/08/05 17:09:09 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "operation.h"
 
-static void     twin_sort(t_stack **lst)
+static int      get_min(t_stack **lst)
 {
-    if (!check_ascend(*lst))
-        swap_a(lst);
-    else
-        return ;
+    int     min;
+
+    min = INT_MAX;
+    while (*lst != NULL)
+    {
+        if (min > (*lst)->data)
+            min = (*lst)->data;
+        *lst = (*lst)->next;
+    }
+    return (min);
 }
 
-void     tri_sort(t_stack **lst, t_stack_param param)
+static int      get_max(t_stack **lst)
 {
-	/*to do list
-	 * 1) compare 1st and 2nd node
-	 * 	1.1) 1st > 2nd --> sa
-	 * 	1.2) 1st < 2nd --> to 2)
-	 * 2) compare 2nd and 3th node
-	 * 	2.1) 2nd > 3rd --> rra
-	 * 	2.2) 2nd < 3rd --> end
-	 */
+    int     max;
+
+    max = INT_MIN;
+    while (*lst != NULL)
+    {
+        if (max < (*lst)->data)
+            max = (*lst)->data;
+        *lst = (*lst)->next;
+    }
+    return (max);
+}
+
+static int      get_pos(t_stack **lst, int nbr)
+{
+    int     pos;
+
+    pos = 1;
+    while (*lst != NULL)
+    {
+        if ((*lst)->data == nbr)
+            break ;
+        pos++;
+        *lst = (*lst)->next;
+    }
+    return (pos);
+}
+
+t_stack_param   get_stack_param(t_stack **lst)
+{
+    t_stack_param   param;
+
+    param.stack_size = (size_t)ft_lstsize(*lst);
+    param.min[0] = get_min(lst);
+    param.max[0] = get_max(lst);
+    param.min[1] = get_pos(lst, param.min[0]);
+    param.max[1] = get_pos(lst, param.max[0]);
+    return (param);
 }
 
 void    sorting_ops(t_stack **a, t_stack **b)
 {
-    t_stack_param   a_param;
+    t_stack_param   a_par;
 
-    a_param = get_stack_param(a);
-    if (a_param.stack_size == 1)
+    a_par = get_stack_param(a);
+    if (a_par.stack_size == 1)
         return ;
-    else if (a_param.stack_size == 2)
-        twin_sort(a);
-    else if (a_param.stack_size > 2 && a_param.stack_size < 51)
-        //insertion sort
-    else if (a_param.stack_size > 50 && a_param.stack_size < 101)
-        //quick sort
+    else if (a_par.stack_size == 2)
+    {
+        if (!check_ascend)
+            swap_a(a);
+    }
+    else if (a_par.stack_size > 2 && a_par.stack_size < 51)
+        insertion_sort(a, b, a_par);
+    else if (a_par.stack_size > 50 && a_par.stack_size < 101)
+        quick_sort(a, b, a_par);
     else
-        //super sort 
+        super_sort(a, b, a_par); 
 }
