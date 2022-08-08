@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 22:50:34 by user              #+#    #+#             */
-/*   Updated: 2022/08/02 14:32:07 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/08/07 11:38:35 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,46 +44,3 @@ void    swap_ab(t_stack **a, t_stack **b)
     top_swap(b);
     ft_putendl_fd("ss", 1);
 }
-
-/*for test only
-
-static void		free_stack(t_stack **a, t_stack **b)
-{
-	ft_lstclear(a);
-	ft_lstclear(b);
-	a = NULL;
-	b = NULL;
-}
-
-static void	print_data(t_stack *head)
-{
-	if (head == NULL)
-		printf("The stack is empty");
-	while (head != NULL)
-	{
-		printf("%d->", head->data);
-		head = head->next;
-	}
-	printf("\n");
-}
-
-int main()
-{
-    t_stack *a;
-    t_stack *new;
-
-    a = NULL;
-    for(int i=0; i < 5; i++)
-    {
-        new = ft_lstnew(i);
-        ft_lstadd_back(&a, new);
-    }
-    ft_putendl_fd("before swap", 1);
-    print_data(a);
-    top_swap(&a);
-    ft_putendl_fd("after swap", 1);
-    print_data(a);
-    ft_lstclear(&a);
-    a = NULL;
-    return (0);
-}*/

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 11:36:00 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/08/03 15:49:43 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/08/07 22:53:27 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,6 @@ int		main(int argc, char **argv)
 				error_exit(&a, &b);
 		}
 		sorting_ops(&a, &b);
-		//print_data(a);
-		//print_data(b);
 		free_stack(&a, &b);
 		exit(0);
 	}

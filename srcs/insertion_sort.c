@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   insertion_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 14:47:49 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/08/05 17:09:10 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/08/08 17:45:49 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,44 +15,45 @@
 
 static void     tri_sort(t_stack **a, t_stack_param a_par)
 {
-    if (a_par.max[1] == 1)
-    {
-        if (a_par.min[1] == 3)
-        {
-            r_rotate_a(a);
-            swap_a(a);
-        }
-        else
-            rotate_a(a);
-    }
-    else if (a_par.min[1] == 3 && a_par.max[1] == 2)
-        r_rotate_a(a);
-    else if (a_par.min[1] == 2 && a_par.max[3] == 3)
-        swap_a(a);
-    else
+    if (a_par.max[1] == 2)
     {
         rotate_a(a);
+        if (a_par.min[1] == 1)
+            swap_a(a);
+    }
+    else if (a_par.min[1] == 2)
+    {
+        if (a_par.max[1] == 3)
+            swap_a(a);
+        else
+            r_rotate_a(a);
+    }
+    else
+    {
+        r_rotate_a(a);
         swap_a(a);   
     }
 }
 
 void     insertion_sort(t_stack **a, t_stack **b, t_stack_param a_par)
 {
-    if (check_ascend(a) && b == NULL)
+    size_t  size_b;
+
+    size_b = 0;
+    if (check_ascend(a) && b == NULL || a == NULL)
         return ;
-    if (a_par.min[1] != 1)
+    while (a_par.stack_size > 3)
     {
-        if (a_par.min[1] < (a_par.stack_size / 2))
-            r_rotate_a(a); //rra
-        else
-            rotate_a(a); //ra
-    }       
+        push_min(a, b, a_par);
+        a_par = get_stack_param(a);
+        size_b++;
+    }
     if (a_par.stack_size == 3)
-            tri_sort(a, a_par);
-    if (check_ascend(a) && check_descent(b))
-        push_a(a, b); //pa
-    else
-        push_b(a, b); //pb
-    a_par = get_stack_param(a);
-    insertion_sort(a, b, a_par);
+        tri_sort(a, a_par);
+    while (size_b > 0)
+    {
+        push_a(a, b);
+        size_b--;
+    }
+    //insertion_sort(a, b, a_par);
 }

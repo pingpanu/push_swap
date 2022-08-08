@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 21:29:41 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/08/05 17:09:10 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/08/08 17:23:19 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,22 +39,6 @@ int      checkdup(t_stack *lst)
 	return (1);
 }
 
-int		check_descend(t_stack **lst)
-{
-	if (lst == NULL)
-		return (0);
-	while (*lst != NULL)
-	{
-		if ((*lst)->next != NULL)
-		{
-			if ((*lst)->data < (*lst)->next->data)
-				return (0);
-		}
-		*lst = (*lst)->next;
-	}
-	return (1);
-}
-
 int		check_ascend(t_stack **lst)
 {
 	if (lst == NULL)
@@ -70,3 +54,21 @@ int		check_ascend(t_stack **lst)
 	}
 	return (1);
 }
+
+int		check_descend(t_stack **lst)
+{
+
+	if (lst == NULL)
+		return (0);
+	while (*lst != NULL)
+	{
+		if ((*lst)->next != NULL)
+		{
+			if ((*lst)->data < (*lst)->next->data)
+				return (0);
+		}
+		*lst = (*lst)->next;
+	}
+	return (1);
+}
+
