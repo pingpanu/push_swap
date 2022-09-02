@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   insertion_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 14:47:49 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/08/08 17:45:49 by user             ###   ########.fr       */
+/*   Updated: 2022/09/02 14:34:31 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void     tri_sort(t_stack **a, t_stack_param a_par)
     }
 }
 
-void     insertion_sort(t_stack **a, t_stack **b, t_stack_param a_par)
+void     insertion_sort(t_stack **a, t_stack **b)
 {
     size_t  size_b;
 

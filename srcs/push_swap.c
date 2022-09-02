@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 11:36:00 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/08/07 22:53:27 by user             ###   ########.fr       */
+/*   Updated: 2022/09/02 14:18:00 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@
  * 3) Parse argv to linked list, stop if it have invalid int
  * 4) Check duplicate value in the linked list.
  * 5) Sort the stack by the following rule.
- * 	5.1) Less than 5 use fixed algorithm.
- * 	5.2) More than 5 but less than 100 use insertion sort.
- * 	5.3) More or equal 100 use quick sort.
+ * 	5.1) Less than 3 use fixed algorithm.
+ * 	5.2) Between 4 to 50 use insertion sort.
+ * 	5.3) More than 50 use quick sort.
  * 6) End
  */
 
 static void		free_stack(t_stack **a, t_stack **b);
 
-int		main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
@@ -58,7 +58,7 @@ void	error_exit(t_stack **a, t_stack **b)
 	exit(1);
 }
 
-static void		free_stack(t_stack **a, t_stack **b)
+static void	free_stack(t_stack **a, t_stack **b)
 {
 	ft_lstclear(a);
 	ft_lstclear(b);

@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 21:29:41 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/08/08 17:23:19 by user             ###   ########.fr       */
+/*   Updated: 2022/09/02 13:56:36 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	checknumeric(char *str)
 {
-	while(*str)
+	while (*str)
 	{
 		if ((*str >= 9 && *str <= 13) || *str == 32)
 			str++;
@@ -25,21 +25,21 @@ int	checknumeric(char *str)
 	return (1);
 }
 
-int      checkdup(t_stack *lst)
+int	checkdup(t_stack *lst)
 {
-    t_stack *check;
+	t_stack	*check;
 
-    check = ft_lstlast(lst);
-    while (lst != check)
-    {
-        if (lst->data == check->data)
-            return (0);
-        lst = lst->next;
-    }
+	check = ft_lstlast(lst);
+	while (lst != check)
+	{
+		if (lst->data == check->data)
+			return (0);
+		lst = lst->next;
+	}
 	return (1);
 }
 
-int		check_ascend(t_stack **lst)
+int	check_ascend(t_stack **lst)
 {
 	if (lst == NULL)
 		return (0);
@@ -55,9 +55,8 @@ int		check_ascend(t_stack **lst)
 	return (1);
 }
 
-int		check_descend(t_stack **lst)
+int	check_descend(t_stack **lst)
 {
-
 	if (lst == NULL)
 		return (0);
 	while (*lst != NULL)
@@ -71,4 +70,3 @@ int		check_descend(t_stack **lst)
 	}
 	return (1);
 }
-

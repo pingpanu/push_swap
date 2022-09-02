@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorting_ops.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 22:48:54 by user              #+#    #+#             */
-/*   Updated: 2022/08/08 17:44:27 by user             ###   ########.fr       */
+/*   Updated: 2022/09/02 14:34:32 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,9 @@ static int      get_pos(t_stack *lst, int nbr)
     return (pos);
 }
 
-t_stack_param   get_stack_param(t_stack **lst)
+t_param	get_stack_param(t_stack **lst)
 {
-    t_stack_param   param;
+    t_param	param;
 
     param.stack_size = (size_t)ft_lstsize(*lst);
     param.min[0] = get_min(*lst);
@@ -70,22 +70,20 @@ t_stack_param   get_stack_param(t_stack **lst)
 
 void    sorting_ops(t_stack **a, t_stack **b)
 {
-    t_stack_param   a_par;
+    int   a_size;
 
-    a_par = get_stack_param(a);
-    if (a_par.stack_size == 1)
+    a_size = ft_lstsize(*a);
+    if (a_size == 1)
         return ;
-    else if (a_par.stack_size == 2)
+    else if (a_size == 2)
     {
         if (!check_ascend(a))
             swap_a(a);
     }
+    else if (a_size > 3 && a_size <= 50)
+        insertion_sort(a, b);
     else
-        insertion_sort(a, b, a_par);
-    /*else if (a_par.stack_size > 50 && a_par.stack_size < 101)
-        quick_sort(a, b, a_par);
-    else
-        super_sort(a, b, a_par);*/
+        quick_sort(a, b);
 }
 
 #include <stdio.h>
