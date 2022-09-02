@@ -6,7 +6,7 @@
 /*   By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 14:12:48 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/09/02 14:50:41 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/09/02 15:08:25 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	rotate_stack(t_stack **lst)
 {
 	t_stack	*temp;
-	t_stack *cursor;
+	t_stack	*cursor;
 
 	if (!(*lst)->next)
 		return ;

@@ -6,84 +6,51 @@
 /*   By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 22:48:54 by user              #+#    #+#             */
-/*   Updated: 2022/09/02 14:34:32 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/09/02 16:05:24 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "operation.h"
 
-static int      get_min(t_stack *lst)
+void	tri_sort(t_stack **a, t_param a_par)
 {
-    int     min;
-
-    min = INT_MAX;
-    while (lst != NULL)
-    {
-        if (min > lst->data)
-            min = lst->data;
-        lst = lst->next;
-    }
-    return (min);
+	if (a_par.max[1] == 2)
+	{
+		rotate_a(a);
+		if (a_par.min[1] == 1)
+			swap_a(a);
+	}
+	else if (a_par.min[1] == 2)
+	{
+		if (a_par.max[1] == 3)
+			swap_a(a);
+		else
+			r_rotate_a(a);
+	}
+	else
+	{
+		r_rotate_a(a);
+		swap_a(a);
+	}
 }
 
-static int      get_max(t_stack *lst)
+void	sorting_ops(t_stack **a, t_stack **b)
 {
-    int     max;
+	int	a_size;
 
-    max = INT_MIN;
-    while (lst != NULL)
-    {
-        if (max < lst->data)
-            max = lst->data;
-        lst = lst->next;
-    }
-    return (max);
-}
-
-static int      get_pos(t_stack *lst, int nbr)
-{
-    int     pos;
-
-    pos = 1;
-    while (lst != NULL)
-    {
-        if (lst->data == nbr)
-            break ;
-        pos++;
-        lst = lst->next;
-    }
-    return (pos);
-}
-
-t_param	get_stack_param(t_stack **lst)
-{
-    t_param	param;
-
-    param.stack_size = (size_t)ft_lstsize(*lst);
-    param.min[0] = get_min(*lst);
-    param.max[0] = get_max(*lst);
-    param.min[1] = get_pos(*lst, param.min[0]);
-    param.max[1] = get_pos(*lst, param.max[0]);
-    return (param);
-}
-
-void    sorting_ops(t_stack **a, t_stack **b)
-{
-    int   a_size;
-
-    a_size = ft_lstsize(*a);
-    if (a_size == 1)
-        return ;
-    else if (a_size == 2)
-    {
-        if (!check_ascend(a))
-            swap_a(a);
-    }
-    else if (a_size > 3 && a_size <= 50)
-        insertion_sort(a, b);
-    else
-        quick_sort(a, b);
+	a_size = ft_lstsize(*a);
+	if (a_size == 1)
+		return ;
+	else if (a_size == 2)
+	{
+		if (!check_ascend(a))
+			swap_a(a);
+	}
+	else if (a_size > 3 && a_size <= 50)
+		insertion_sort(a, b);
+	else
+		quick_sort(a, b);
 }
 
 #include <stdio.h>

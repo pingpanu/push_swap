@@ -6,7 +6,7 @@
 /*   By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 13:23:19 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/09/02 14:38:06 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/09/02 15:26:47 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,9 @@ int		check_descend(t_stack **lst);
 /*these functions are in parse_argv.c*/
 int		argv_split(char **arr, t_stack **a);
 int		argv_nor(int size, char **arr, t_stack **a);
-/*these functions are in sorting_ops*/
+/*these functions are for sorting*/
 void	sorting_ops(t_stack **a, t_stack **b);
 t_param	get_stack_param(t_stack **lst);
+void	tri_sort(t_stack **a, t_param a_par);
+void	insertion_sort(t_stack **a, t_stack **b);
 #endif
