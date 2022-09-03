@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   r_rotate.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/02 14:09:54 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/09/02 15:07:54 by pingpanu         ###   ########.fr       */
+/*   Created: 2022/09/02 14:12:48 by pingpanu          #+#    #+#             */
+/*   Updated: 2022/09/03 14:36:33 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,16 @@
 static void	r_rotate_stack(t_stack **lst)
 {
 	t_stack	*temp;
+	t_stack	*cursor;
 
 	if (!(*lst)->next)
 		return ;
-	temp = *lst;
-	*lst = temp->next;
-	temp->next = NULL;
-	ft_lstadd_back(lst, temp);
+	cursor = *lst;
+	while (cursor->next->next != NULL)
+		cursor = cursor->next;
+	temp = cursor->next;
+	cursor->next = NULL;
+	ft_lstadd_front(lst, temp);
 }
 
 void	r_rotate_a(t_stack **a)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 13:23:19 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/09/02 15:26:47 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/09/03 14:32:00 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ typedef struct s_param
 	int		max[2];
 }	t_param;
 
-//int		main(int argc, char **argv);
 void	error_exit(t_stack **a, t_stack **b);
 /*these functions are in utils_check.c*/
 int		checknumeric(char *str);
