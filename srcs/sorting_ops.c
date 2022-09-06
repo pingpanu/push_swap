@@ -6,7 +6,7 @@
 /*   By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 14:47:34 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/09/06 16:07:21 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/09/06 20:03:15 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 void	tri_sort(t_stack **a, t_param a_par)
 {
+	if (check_ascend(a))
+		return ;
 	if (a_par.max[1] == 1)
 	{
 		rotate_a(a);

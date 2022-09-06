@@ -6,7 +6,7 @@
 /*   By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 13:23:19 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/09/06 16:07:00 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/09/06 20:44:00 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	error_exit(t_stack **a, t_stack **b);
 int		checknumeric(char *str);
 int		checkdup(t_stack *lst);
 int		check_ascend(t_stack **lst);
-int		check_descend(t_stack **lst);
+int		check_chunk(t_stack **lst, int chunk_size);
 /*these functions are in parse_argv.c*/
 int		argv_split(char **arr, t_stack **a);
 int		argv_nor(int size, char **arr, t_stack **a);

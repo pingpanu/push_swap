@@ -6,7 +6,7 @@
 /*   By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 21:29:41 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/09/02 15:26:49 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/09/06 20:44:01 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,18 +55,16 @@ int	check_ascend(t_stack **lst)
 	return (1);
 }
 
-int	check_descend(t_stack **lst)
+int  check_chunk(t_stack **lst, int chunk_size)
 {
-	if (lst == NULL)
-		return (0);
-	while (*lst != NULL)
-	{
-		if ((*lst)->next != NULL)
-		{
-			if ((*lst)->data < (*lst)->next->data)
-				return (0);
-		}
-		*lst = (*lst)->next;
-	}
-	return (1);
+    if (chunk_size == 0)
+        return (1);
+    while (chunk_size >= 0 && (*lst)->next != NULL)
+    {
+        if ((*lst)->data > (*lst)->next->data)
+            return (0);
+        *lst = (*lst)->next;
+        chunk_size--;
+    }
+    return (1);
 }

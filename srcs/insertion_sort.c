@@ -6,7 +6,7 @@
 /*   By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 14:47:49 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/09/06 15:16:55 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/09/06 20:35:57 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 
 static void	a_max_to_last(t_stack **a, t_param *a_par)
 {
-	float	a_mid;
+	int		a_mid;
 
-	a_mid = (float)a_par->stack_size / 2;
+	a_mid = a_par->stack_size / 2;
 	while (a_par->max[1] < a_par->stack_size)
 	{
-		if ((float)a_par->max[1] < a_mid)
+		if (a_par->max[1] < a_mid)
 		{
 			rotate_a(a);
 			a_par->max[1]--;
@@ -58,14 +58,14 @@ static void	insert_swap(t_stack **a, t_stack **b)
 
 static void	push_back(t_stack **a, t_stack **b, t_param b_par)
 {
-	float	b_mid;
+	int		b_mid;
 
 	if (b_par.max[1] != 1)
 	{
-		b_mid = (float)b_par.stack_size / 2;
+		b_mid = b_par.stack_size / 2;
 		while (b_par.max[1] > 1)
 		{
-			if ((float)b_par.max[1] < b_mid)
+			if (b_par.max[1] < b_mid)
 			{
 				rotate_b(b);
 				b_par.max[1]--;
@@ -86,7 +86,6 @@ void	insertion_sort(t_stack **a, t_stack **b)
 {
 	t_param	a_par;
 	t_param	b_par;
-	float	b_mid;
 
 	a_par = get_stack_param(a);
 	if (a_par.max[2] < a_par.stack_size)
