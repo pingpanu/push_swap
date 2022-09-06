@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorting_ops.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pingpanu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 14:47:34 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/09/06 14:47:51 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/09/06 16:07:21 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	sorting_ops(t_stack **a, t_stack **b)
 	int	a_size;
 
 	if (check_ascend(a))
-		exit(0);
+		return ;
 	a_size = ft_lstsize(*a);
 	if (a_size == 1)
 		return ;
@@ -50,5 +50,5 @@ void	sorting_ops(t_stack **a, t_stack **b)
 	else if (a_size > 3 && a_size <= 50)
 		insertion_sort(a, b);
 	else
-		quick_sort(a, b);
+		quick_sort(a, b, a_size);
 }
