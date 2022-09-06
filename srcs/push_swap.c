@@ -3,26 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: pingpanu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/19 11:36:00 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/09/02 14:18:00 by pingpanu         ###   ########.fr       */
+/*   Created: 2022/09/06 14:46:33 by pingpanu          #+#    #+#             */
+/*   Updated: 2022/09/06 14:46:45 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-/*To do list
- * 1) Check if argv is equal 1, if yes return error.
- * 2) Check if the struct dont have Nonnumeric character
- * 3) Parse argv to linked list, stop if it have invalid int
- * 4) Check duplicate value in the linked list.
- * 5) Sort the stack by the following rule.
- * 	5.1) Less than 3 use fixed algorithm.
- * 	5.2) Between 4 to 50 use insertion sort.
- * 	5.3) More than 50 use quick sort.
- * 6) End
- */
 
 static void		free_stack(t_stack **a, t_stack **b);
 

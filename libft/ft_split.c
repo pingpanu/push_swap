@@ -6,7 +6,7 @@
 /*   By: pingpanu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 14:24:40 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/07/11 15:10:02 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/09/06 14:38:54 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static char	*str_start(const char *s, char c, int i)
 		j++;
 	while (s[j])
 	{
-		if (i == 0 && s[j] != c && j ==0)
+		if (i == 0 && s[j] != c && j == 0)
 			return ((char *)&s[j]);
 		if ((s[j] == c && s[j + 1] != c))
 			return ((char *)&s[j + 1]);
@@ -52,7 +52,7 @@ static char	*str_start(const char *s, char c, int i)
 
 static	char	*get_str(const char *cur, char c)
 {
-	int	len;
+	int		len;
 	char	*ret;
 
 	len = 0;

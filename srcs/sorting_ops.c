@@ -3,28 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   sorting_ops.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: pingpanu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/01 22:48:54 by user              #+#    #+#             */
-/*   Updated: 2022/09/03 14:46:38 by user             ###   ########.fr       */
+/*   Created: 2022/09/06 14:47:34 by pingpanu          #+#    #+#             */
+/*   Updated: 2022/09/06 14:47:51 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "operation.h"
-#include <stdio.h>
-
-static void     print_lst(t_stack *lst)
-{
-    if (lst == NULL)
-        printf("Stack is empty");
-    while (lst != NULL)
-    {
-        printf("%d-> ",lst->data);
-        lst = lst->next;
-    }
-    printf("\n");
-}
 
 void	tri_sort(t_stack **a, t_param a_par)
 {

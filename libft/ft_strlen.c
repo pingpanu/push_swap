@@ -6,18 +6,18 @@
 /*   By: pingpanu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 22:23:39 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/03/14 13:41:49 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/09/06 14:39:50 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t  ft_strlen(const char *str)
+size_t	ft_strlen(const char *str)
 {
-	  const char      *s;
+	const char	*s;
 
-	  s = str;
-	  while (*s != '\0')
-		  ++s;
-	  return (s - str);
+	s = str;
+	while (*s != '\0')
+		++s;
+	return (s - str);
 }

@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 23:02:42 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/09/01 19:38:32 by user             ###   ########.fr       */
+/*   Updated: 2022/09/06 14:34:13 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@
 typedef struct s_stack
 {
 	int				data;
-	int				pos;
-	int				fin_pos;
 	struct s_stack	*next;
 }				t_stack;
 
