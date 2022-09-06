@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
+#    By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/11 14:49:15 by pingpanu          #+#    #+#              #
-#    Updated: 2022/09/03 14:01:34 by user             ###   ########.fr        #
+#    Updated: 2022/09/06 15:17:41 by pingpanu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,7 @@ SRC_NAME = 	push_swap.c \
 			parse_argv.c \
 			utils_check.c \
 			sorting_ops.c \
+			insertion_sort.c \
 			push.c \
 			swap.c \
 			rotate.c \

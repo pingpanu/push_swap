@@ -6,50 +6,104 @@
 /*   By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 14:47:49 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/09/02 16:03:35 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/09/06 15:16:55 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "operation.h"
 
-static void	check_push(t_stack **a, t_stack **b)
+static void	a_max_to_last(t_stack **a, t_param *a_par)
 {
-	if ((*a)->data > (*a)->next->data)
-		swap_a(a);
-	push_b(a, b);
+	float	a_mid;
+
+	a_mid = (float)a_par->stack_size / 2;
+	while (a_par->max[1] < a_par->stack_size)
+	{
+		if ((float)a_par->max[1] < a_mid)
+		{
+			rotate_a(a);
+			a_par->max[1]--;
+			if (a_par->max[1] < 1)
+				a_par->max[1] = a_par->stack_size;
+		}
+		else
+		{
+			r_rotate_a(a);
+			a_par->max[1]++;
+		}
+	}
 }
 
-static void	check_ab_stack(t_stack **a, t_stack **b, t_param a_par)
+static void	insert_swap(t_stack **a, t_stack **b)
 {
+	int		need_sa;
+	int		need_sb;
+
+	need_sa = 0;
+	need_sb = 0;
 	if ((*a)->data > (*a)->next->data)
+		need_sa = 1;
+	if ((*b)->next != NULL && (*b)->data < (*b)->next->data)
+		need_sb = 1;
+	if (need_sa == 1 && need_sb == 0)
+		swap_a(a);
+	else if (need_sa == 0 && need_sb == 1)
+		swap_b(a);
+	else if (need_sa == 1 && need_sb == 1)
 		swap_ab(a, b);
 	else
-		swap_b(b);
-	tri_sort(a, a_par);
+		return ;
+}
+
+static void	push_back(t_stack **a, t_stack **b, t_param b_par)
+{
+	float	b_mid;
+
+	if (b_par.max[1] != 1)
+	{
+		b_mid = (float)b_par.stack_size / 2;
+		while (b_par.max[1] > 1)
+		{
+			if ((float)b_par.max[1] < b_mid)
+			{
+				rotate_b(b);
+				b_par.max[1]--;
+			}
+			else
+			{
+				r_rotate_b(b);
+				b_par.max[1]++;
+				if (b_par.max[1] > b_par.stack_size)
+					b_par.max[1] = 1;
+			}
+		}
+	}
+	push_a(a, b);
 }
 
 void	insertion_sort(t_stack **a, t_stack **b)
 {
 	t_param	a_par;
 	t_param	b_par;
+	float	b_mid;
 
 	a_par = get_stack_param(a);
-	while (a_par.max[2] < a_par.min[2])
-		rearrange(a, a_par);
+	if (a_par.max[2] < a_par.stack_size)
+		a_max_to_last(a, &a_par);
 	while (a_par.stack_size > 3)
 	{
-		check_push(a, b);
+		insert_swap(a, b);
+		push_a(a, b);
 		a_par.stack_size--;
 	}
+	insert_swap(a, b);
 	b_par = get_stack_param(b);
-	if (check_descend(b) == 1)
-		tri_sort(a, a_par);
-	else
-		check_ab_stack(a, b, a_par);
 	while (b_par.stack_size > 0)
 	{
 		push_back(a, b, b_par);
-		b_par.stack_size--;
+		if ((*a)->data > (*a)->next->data)
+			swap_a(a);
+		b_par = get_stack_param(b);
 	}
 }
