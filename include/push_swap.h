@@ -6,7 +6,7 @@
 /*   By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 13:23:19 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/09/06 20:44:00 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/09/06 21:51:08 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 /*this struct is for analyzed stacks*/
 typedef struct s_param
 {
-	size_t	stack_size;
+	int		stack_size;
 	int		min[2];
 	int		max[2];
 }	t_param;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_param.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pingpanu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 16:00:32 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/09/02 16:00:57 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/09/06 21:50:56 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ t_param	get_stack_param(t_stack **lst)
 {
 	t_param	param;
 
-	param.stack_size = (size_t)ft_lstsize(*lst);
+	param.stack_size = ft_lstsize(*lst);
 	param.min[0] = get_min(*lst);
 	param.max[0] = get_max(*lst);
 	param.min[1] = get_pos(*lst, param.min[0]);
