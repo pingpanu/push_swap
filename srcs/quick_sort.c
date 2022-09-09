@@ -6,7 +6,7 @@
 /*   By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 15:52:03 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/09/06 21:01:23 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/09/09 15:02:18 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,16 @@
 static int  pivot_push_a(t_stack **a, t_stack **b, int  chunk_size)
 {
     t_param b_par;
-    int     b_pivot[2];
+    int     b_pivot;
     int     chunk_a_size;
+    int     curr;
 
     chunk_a_size = 0;
     b_par = get_stack_param(b);
-    b_pivot[0] = (b_par.max[0] + b_par.min[0]) / 2;
-    b_pivot[1] = chunk_size / 2;
-    while (b_pivot[1] >= 0)
+    b_pivot = get_mid(b, b_par);
+    while (b_par.max[0] > b_pivot)
     {
+        curr = (*b)->data:
         if ((*b)->data < b_pivot[0])
         {
             push_a(a, b);

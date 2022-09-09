@@ -6,13 +6,13 @@
 /*   By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 16:00:32 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/09/06 21:50:56 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/09/09 15:08:07 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	get_min(t_stack *lst)
+int	get_min(t_stack *lst)
 {
 	int	min;
 
@@ -26,7 +26,7 @@ static int	get_min(t_stack *lst)
 	return (min);
 }
 
-static int	get_max(t_stack *lst)
+int	get_max(t_stack *lst)
 {
 	int	max;
 

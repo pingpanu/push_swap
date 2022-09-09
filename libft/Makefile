@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
+#    By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/05 23:00:53 by pingpanu          #+#    #+#              #
-#    Updated: 2022/07/29 22:13:33 by user             ###   ########.fr        #
+#    Updated: 2022/09/09 15:10:31 by pingpanu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRC = ft_putchar_fd.c \
       ft_strcmp.c \
       ft_strlcpy.c \
       ft_atoi.c \
+      ft_abs.c \
       ft_itoa.c \
       ft_split.c \
       ft_lstadd_front.c \

@@ -16,6 +16,43 @@ static void print_lst(t_stack *lst)
     printf("\n");
 }
 
+static int  ft_abs(int nbr)
+{
+    if (nbr < 0)
+        return (nbr * -1);
+    return (nbr);
+}
+
+static int  get_mid(t_stack *lst, t_param par)
+{
+    int     mid;
+    int     cur;
+
+    mid = (par.max[0] + par.min[0]) / 2;
+    cur = lst->data;
+    while (lst != NULL)
+    {
+        if (ft_abs(mid - lst->data) < (mid - cur))
+            cur = lst->data;
+        lst = lst->next; 
+    }
+    return (cur);
+}
+
+static int  get_min(t_stack *lst)
+{
+    int min;
+
+    min = INT_MAX;
+    while (lst != NULL)
+    {
+        if (min > lst->data)
+            min = lst->data;
+        lst = lst->next;
+    }
+    return (min);
+}
+
 int main()
 { 
     t_param a_par;
@@ -24,7 +61,7 @@ int main()
     t_stack *a;
     t_stack *b;
     t_stack *new;
-    int     data;
+
 
     a = NULL;
     b = NULL;
@@ -35,14 +72,16 @@ int main()
     }
     print_lst(a);
     a_par = get_stack_param(&a);
-    a_mid = (a_par.max[0] + a_par.min[0]) / 2;
+    a_mid = get_mid(a, a_par);
     printf("%d\n",a_mid);
-    while (a_par.stack_size > 3)
+    while (a_par.min[0] < a_mid)
     {
-        if (a->data > a_mid)
-            rotate_a(&a);
-        push_b(&a, &b);
-        a_par.stack_size--;
+        if(a->data < a_mid)
+        {
+            push_b(&a, &b);
+            a_par.min[0] = get_min(a);
+        }
+        rotate_a(&a);
     }
     print_lst(a);
     print_lst(b);

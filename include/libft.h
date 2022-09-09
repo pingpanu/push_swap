@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 23:02:42 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/09/06 14:34:13 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/09/09 15:11:34 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,10 @@ void	ft_lstadd_back(t_stack **lst, t_stack *new);
 void	ft_lstdelone(t_stack *lst);
 void	ft_lstclear(t_stack **lst);
 int		ft_lstsize(t_stack *lst);
-/*character comparison*/
+/*basics function*/
 int		ft_isdigit(int c);
 int		ft_atoi(const char *str);
+int		ft_abs(int nbr);
 int		ft_strcmp(const char *s1, const char *s2);
 size_t	ft_strlen(const char *s);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);

@@ -6,7 +6,7 @@
 /*   By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 13:23:19 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/09/06 21:51:08 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/09/09 15:09:25 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,12 @@ int		argv_split(char **arr, t_stack **a);
 int		argv_nor(int size, char **arr, t_stack **a);
 /*these functions are for sorting*/
 void	sorting_ops(t_stack **a, t_stack **b);
-t_param	get_stack_param(t_stack **lst);
 void	tri_sort(t_stack **a, t_param a_par);
 void	insertion_sort(t_stack **a, t_stack **b);
 void	quick_sort(t_stack **a, t_stack **b, int chunk_a);
+/*these functions are utility for sorting*/
+t_param	get_stack_param(t_stack **lst);
+int		get_min(t_stack *lst);
+int		get_max(t_stack *lst);
+int		get_mid(t_stack *lst, t_param par);
 #endif
