@@ -3,21 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   insertion_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 14:47:49 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/09/06 20:35:57 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/09/17 22:58:46 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "operation.h"
 
+/*  consider how actual insertion_sort work, this thing should be called bubble_sort  */
+/*  but push_swap limitation make bubble sort as fast as insertion_sort               */
+
 static void	a_max_to_last(t_stack **a, t_param *a_par)
 {
 	int		a_mid;
 
-	a_mid = a_par->stack_size / 2;
+	a_mid = (a_par->stack_size / 2) + 1;
 	while (a_par->max[1] < a_par->stack_size)
 	{
 		if (a_par->max[1] < a_mid)
@@ -35,74 +38,39 @@ static void	a_max_to_last(t_stack **a, t_param *a_par)
 	}
 }
 
-static void	insert_swap(t_stack **a, t_stack **b)
+static int	check_and_swap(t_stack **a, t_stack **b, t_param *a_par)
 {
-	int		need_sa;
-	int		need_sb;
-
-	need_sa = 0;
-	need_sb = 0;
-	if ((*a)->data > (*a)->next->data)
-		need_sa = 1;
-	if ((*b)->next != NULL && (*b)->data < (*b)->next->data)
-		need_sb = 1;
-	if (need_sa == 1 && need_sb == 0)
-		swap_a(a);
-	else if (need_sa == 0 && need_sb == 1)
-		swap_b(a);
-	else if (need_sa == 1 && need_sb == 1)
-		swap_ab(a, b);
-	else
-		return ;
+	if (check_ascend(a))
+		return (0);
+	insert_swap(a, b);
+	if (check_ascend(a))
+		return (0);
+	push_b(a, b);
+	a_par->stack_size--;
+	return (1);
 }
 
-static void	push_back(t_stack **a, t_stack **b, t_param b_par)
-{
-	int		b_mid;
-
-	if (b_par.max[1] != 1)
-	{
-		b_mid = b_par.stack_size / 2;
-		while (b_par.max[1] > 1)
-		{
-			if (b_par.max[1] < b_mid)
-			{
-				rotate_b(b);
-				b_par.max[1]--;
-			}
-			else
-			{
-				r_rotate_b(b);
-				b_par.max[1]++;
-				if (b_par.max[1] > b_par.stack_size)
-					b_par.max[1] = 1;
-			}
-		}
-	}
-	push_a(a, b);
-}
-
-void	insertion_sort(t_stack **a, t_stack **b)
+void	insertion_sort(t_stack **a, t_stack **b, int b_size)
 {
 	t_param	a_par;
-	t_param	b_par;
+	int		b_limit;
 
-	a_par = get_stack_param(a);
-	if (a_par.max[2] < a_par.stack_size)
+	a_par = get_stack_param(a, 0);
+	if (a_par.max[1] < a_par.stack_size)
 		a_max_to_last(a, &a_par);
+	if (check_ascend(a))
+		return ;
 	while (a_par.stack_size > 3)
 	{
-		insert_swap(a, b);
-		push_a(a, b);
-		a_par.stack_size--;
+		if (!check_and_swap(a, b, &a_par))
+			break ;
 	}
-	insert_swap(a, b);
-	b_par = get_stack_param(b);
-	while (b_par.stack_size > 0)
+	if (!check_ascend(a))
+		insert_swap(a, b);
+	b_limit = ft_lstsize(*b) - b_size;
+	while (b_limit > 0)
 	{
-		push_back(a, b, b_par);
-		if ((*a)->data > (*a)->next->data)
-			swap_a(a);
-		b_par = get_stack_param(b);
+		push_back(a, b);
+		b_limit--;
 	}
 }

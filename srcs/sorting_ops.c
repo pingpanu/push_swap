@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorting_ops.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 14:47:34 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/09/06 20:03:15 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/09/17 15:27:49 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,19 @@ void	tri_sort(t_stack **a, t_param a_par)
 	if (a_par.max[1] == 1)
 	{
 		rotate_a(a);
-		if ((*a)->data > (*a)->next->data)
-			swap_a(a);
+		/*if ((*a)->data > (*a)->next->data)
+			swap_a(a);*/
 	}
 	else if (a_par.max[1] == 2)
 	{
 		r_rotate_a(a);
-		if ((*a)->data > (*a)->next->data)
-			swap_a(a);
+		/*if ((*a)->data > (*a)->next->data)
+			swap_a(a);*/
 	}
 	else
 		swap_a(a);
+	a_par = get_stack_param(a, 0);
+	tri_sort(a, a_par);
 }
 
 void	sorting_ops(t_stack **a, t_stack **b)
@@ -48,9 +50,9 @@ void	sorting_ops(t_stack **a, t_stack **b)
 			swap_a(a);
 	}
 	else if (a_size == 3)
-		tri_sort(a, get_stack_param(a));
+		tri_sort(a, get_stack_param(a, 0));
 	else if (a_size > 3 && a_size <= 50)
-		insertion_sort(a, b);
+		insertion_sort(a, b, 0);
 	else
 		quick_sort(a, b, a_size);
 }

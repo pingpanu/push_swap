@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+         #
+#    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/11 14:49:15 by pingpanu          #+#    #+#              #
-#    Updated: 2022/09/06 15:17:41 by pingpanu         ###   ########.fr        #
+#    Updated: 2022/09/17 13:10:39 by user             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,8 +31,11 @@ CYAN = '\033[0;36m'
 SRC_NAME = 	push_swap.c \
 			parse_argv.c \
 			utils_check.c \
+			get_param.c \
 			sorting_ops.c \
 			insertion_sort.c \
+			quick_sort.c \
+			utils_algo.c \
 			push.c \
 			swap.c \
 			rotate.c \

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 21:29:41 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/09/06 20:44:01 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/09/17 13:34:34 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,21 +41,21 @@ int	checkdup(t_stack *lst)
 
 int	check_ascend(t_stack **lst)
 {
-	if (lst == NULL)
+	t_stack *cursor;
+
+	if (ft_lstsize(*lst) == 0)
 		return (0);
-	while (*lst != NULL)
+	cursor = *lst;
+	while (cursor->next != NULL)
 	{
-		if ((*lst)->next != NULL)
-		{
-			if ((*lst)->data > (*lst)->next->data)
-				return (0);
-		}
-		*lst = (*lst)->next;
+		if (cursor->data > cursor->next->data)
+			return (0);
+		cursor = cursor->next;
 	}
 	return (1);
 }
 
-int  check_chunk(t_stack **lst, int chunk_size)
+/*int  check_chunk(t_stack **lst, int chunk_size)
 {
     if (chunk_size == 0)
         return (1);
@@ -67,4 +67,4 @@ int  check_chunk(t_stack **lst, int chunk_size)
         chunk_size--;
     }
     return (1);
-}
+}*/
