@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   r_rotate.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pingpanu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 14:47:11 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/09/06 14:47:14 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/09/19 12:25:36 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
 static void	r_rotate_stack(t_stack **lst)
 {
@@ -27,21 +27,24 @@ static void	r_rotate_stack(t_stack **lst)
 	ft_lstadd_front(lst, temp);
 }
 
-void	r_rotate_a(t_stack **a)
+int		r_rotate_a(t_stack **a)
 {
 	r_rotate_stack(a);
 	ft_putendl_fd("rra", 1);
+	return (1);
 }
 
-void	r_rotate_b(t_stack **b)
+int		r_rotate_b(t_stack **b)
 {
 	r_rotate_stack(b);
 	ft_putendl_fd("rrb", 1);
+	return (1);
 }
 
-void	r_rotate_ab(t_stack **a, t_stack **b)
+int		r_rotate_ab(t_stack **a, t_stack **b)
 {
 	r_rotate_stack(a);
 	r_rotate_stack(b);
 	ft_putendl_fd("rrr", 1);
+	return (1);
 }

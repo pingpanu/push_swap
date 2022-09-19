@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pingpanu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 14:48:06 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/09/06 14:48:07 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/09/19 12:26:27 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
 static void	top_swap(t_stack **lst)
 {
@@ -26,21 +26,24 @@ static void	top_swap(t_stack **lst)
 	(*lst)->next = node1;
 }
 
-void	swap_a(t_stack **a)
+int		swap_a(t_stack **a)
 {
 	top_swap(a);
 	ft_putendl_fd("sa", 1);
+	return (1);
 }
 
-void	swap_b(t_stack **b)
+int		swap_b(t_stack **b)
 {
 	top_swap(b);
 	ft_putendl_fd("sb", 1);
+	return (1);
 }
 
-void	swap_ab(t_stack **a, t_stack **b)
+int		swap_ab(t_stack **a, t_stack **b)
 {
 	top_swap(a);
 	top_swap(b);
 	ft_putendl_fd("ss", 1);
+	return (1);
 }

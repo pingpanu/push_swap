@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 21:29:41 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/09/17 13:34:34 by user             ###   ########.fr       */
+/*   Updated: 2022/09/19 15:48:15 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,16 +55,18 @@ int	check_ascend(t_stack **lst)
 	return (1);
 }
 
-/*int  check_chunk(t_stack **lst, int chunk_size)
+int	check_descend(t_stack **lst)
 {
-    if (chunk_size == 0)
-        return (1);
-    while (chunk_size >= 0 && (*lst)->next != NULL)
-    {
-        if ((*lst)->data > (*lst)->next->data)
-            return (0);
-        *lst = (*lst)->next;
-        chunk_size--;
-    }
-    return (1);
-}*/
+	t_stack *cursor;
+
+	if (ft_lstsize(*lst) == 0)
+		return (0);
+	cursor = *lst;
+	while (cursor->next != NULL)
+	{
+		if (cursor->data < cursor->next->data)
+			return (0);
+		cursor = cursor->next;
+	}
+	return (1);
+}

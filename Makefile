@@ -6,7 +6,7 @@
 #    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/11 14:49:15 by pingpanu          #+#    #+#              #
-#    Updated: 2022/09/17 13:10:39 by user             ###   ########.fr        #
+#    Updated: 2022/09/19 16:12:44 by user             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ SRC_NAME = 	push_swap.c \
 			get_param.c \
 			sorting_ops.c \
 			insertion_sort.c \
+			insert_utils.c \
 			quick_sort.c \
 			utils_algo.c \
 			push.c \

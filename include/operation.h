@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operation.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 22:55:48 by user              #+#    #+#             */
-/*   Updated: 2022/09/02 13:43:12 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/09/19 12:25:07 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,18 @@
 # include <stdlib.h>
 # include "libft.h"
 /*they are in swap.c*/
-void	swap_a(t_stack **a);
-void	swap_b(t_stack **b);
-void	swap_ab(t_stack **a, t_stack **b);
+int     swap_a(t_stack **a);
+int 	swap_b(t_stack **b);
+int 	swap_ab(t_stack **a, t_stack **b);
 /*they are in push.c*/
-void	push_a(t_stack **a, t_stack **b);
-void	push_b(t_stack **a, t_stack **b);
+int 	push_a(t_stack **a, t_stack **b);
+int 	push_b(t_stack **a, t_stack **b);
 /*they are in rotate.c*/
-void	rotate_a(t_stack **a);
-void	rotate_b(t_stack **b);
-void	rotate_ab(t_stack **a, t_stack **b);
+int 	rotate_a(t_stack **a);
+int 	rotate_b(t_stack **b);
+int 	rotate_ab(t_stack **a, t_stack **b);
 /*they are in r_rotate.c*/
-void	r_rotate_a(t_stack **a);
-void	r_rotate_b(t_stack **b);
-void	r_rotate_ab(t_stack **a, t_stack **b);
+int 	r_rotate_a(t_stack **a);
+int 	r_rotate_b(t_stack **b);
+int 	r_rotate_ab(t_stack **a, t_stack **b);
 #endif

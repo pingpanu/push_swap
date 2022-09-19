@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pingpanu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 14:44:13 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/09/06 14:44:15 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/09/19 12:26:05 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
 static void	rotate_stack(t_stack **lst)
 {
@@ -24,21 +24,24 @@ static void	rotate_stack(t_stack **lst)
 	ft_lstadd_back(lst, temp);
 }
 
-void	rotate_a(t_stack **a)
+int		rotate_a(t_stack **a)
 {
 	rotate_stack(a);
 	ft_putendl_fd("ra", 1);
+	return (1);
 }
 
-void	rotate_b(t_stack **b)
+int		rotate_b(t_stack **b)
 {
 	rotate_stack(b);
 	ft_putendl_fd("rb", 1);
+	return (1);
 }
 
-void	rotate_ab(t_stack **a, t_stack **b)
+int		rotate_ab(t_stack **a, t_stack **b)
 {
 	rotate_stack(a);
 	rotate_stack(b);
 	ft_putendl_fd("rr", 1);
+	return (1);
 }
