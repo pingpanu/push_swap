@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_argv.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pingpanu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 14:44:48 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/09/06 14:45:47 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/09/20 23:54:50 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	valid_integer(char *nbr, t_stack **a)
 		return (0);
 	temp = ft_lstnew(ft_atoi(nbr));
 	check = ft_itoa(temp->data);
-	if (!temp || ft_strcmp(check, nbr) != 0)
+	if (!temp || ft_strncmp(check, nbr, ft_strlen(check)) != 0)
 	{
 		free(check);
 		return (0);

@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pingpanu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 20:52:35 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/09/20 22:44:12 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/09/20 23:39:57 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 static char	*ft_getline(char *s)
 {
@@ -71,7 +72,7 @@ static char	*ft_readfile(int fd, char *str)
 	int		rd;
 
 	if (!str)
-		str = malloc(1 * sizeof(char));
+		str = ft_calloc(1, sizeof(char));
 	buf = malloc((BUFFER_SIZE + 1) * sizeof(char));
 	rd = 1;
 	while ((!ft_strchr(str, '\n')) && rd != 0)

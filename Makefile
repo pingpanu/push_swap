@@ -6,7 +6,7 @@
 #    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/11 14:49:15 by pingpanu          #+#    #+#              #
-#    Updated: 2022/09/20 21:49:28 by pingpanu         ###   ########.fr        #
+#    Updated: 2022/09/21 00:12:44 by user             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,10 +46,10 @@ BOS_NAME =	checker_main.c \
 			parse_argv.c \
 			utils_check.c \
 			checker_sort.c \
-			push.c \
-			swap.c \
-			rotate.c \
-			r_rotate.c \
+			check_push.c \
+			check_swap.c \
+			check_rotate.c \
+			check_rrotate.c \
 
 OBJS = $(addprefix $(SDIR), $(SRC_NAME:.c=.o))
 OBJ_BO = $(addprefix $(SDIR), $(BOS_NAME:.c=.o))

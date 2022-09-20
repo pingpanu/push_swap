@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 23:02:42 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/09/20 22:53:19 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/09/20 23:53:43 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <limits.h>
-//# ifndef BUFFER_SIZE
-//#  define BUFFER_SIZE 500
-//# endif
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 2
+# endif
 
 /*bonus part*/
 typedef struct s_stack
@@ -38,7 +38,7 @@ int		ft_lstsize(t_stack *lst);
 int		ft_isdigit(int c);
 int		ft_atoi(const char *str);
 int		ft_abs(int nbr);
-int		ft_strcmp(const char *s1, const char *s2);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t	ft_strlen(const char *s);
 size_t	ft_strlcpy(char *dst, const char *src, size_t n);
 void	ft_bzero(void *s, size_t n);

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+         #
+#    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/05 23:00:53 by pingpanu          #+#    #+#              #
-#    Updated: 2022/09/20 21:06:06 by pingpanu         ###   ########.fr        #
+#    Updated: 2022/09/20 23:53:52 by user             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SRC = ft_putchar_fd.c \
       ft_strlen.c \
       ft_bzero.c \
       ft_calloc.c \
-      ft_strcmp.c \
+      ft_strncmp.c \
       ft_strlcpy.c \
       ft_strjoin.c \
       ft_strchr.c \
