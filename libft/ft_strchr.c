@@ -1,41 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pingpanu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/20 10:08:26 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/09/20 10:13:07 by pingpanu         ###   ########.fr       */
+/*   Created: 2022/02/28 22:22:22 by pingpanu          #+#    #+#             */
+/*   Updated: 2022/03/06 11:55:02 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	push_a(t_stack **a, t_stack **b)
+char	*ft_strchr(const char *s, int c)
 {
-	t_stack	*push;
+	unsigned char	cuc;
+	size_t			i;
+	size_t			slen;
 
-	if (!(*b))
-		return (0);
-	push = *b;
-	*b = push->next;
-	push->next = NULL;
-	ft_lstadd_front(a, push);
-	ft_putendl_fd("pa", 1);
-	return (1);
-}
-
-int	push_b(t_stack **a, t_stack **b)
-{
-	t_stack	*push;
-
-	if (!(*a))
-		return (0);
-	push = *a;
-	*a = push->next;
-	push->next = NULL;
-	ft_lstadd_front(b, push);
-	ft_putendl_fd("pb", 1);
-	return (1);
+	i = 0;
+	slen = ft_strlen(s);
+	cuc = (unsigned char)c;
+	while (s[i] != cuc)
+	{
+		if (i == slen)
+			return (NULL);
+		i++;
+	}
+	return ((char *)s + i);
 }

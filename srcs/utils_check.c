@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: pingpanu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/07 21:29:41 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/09/19 15:48:15 by user             ###   ########.fr       */
+/*   Created: 2022/09/20 10:13:41 by pingpanu          #+#    #+#             */
+/*   Updated: 2022/09/20 10:14:33 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	checkdup(t_stack *lst)
 
 int	check_ascend(t_stack **lst)
 {
-	t_stack *cursor;
+	t_stack	*cursor;
 
 	if (ft_lstsize(*lst) == 0)
 		return (0);
@@ -49,22 +49,6 @@ int	check_ascend(t_stack **lst)
 	while (cursor->next != NULL)
 	{
 		if (cursor->data > cursor->next->data)
-			return (0);
-		cursor = cursor->next;
-	}
-	return (1);
-}
-
-int	check_descend(t_stack **lst)
-{
-	t_stack *cursor;
-
-	if (ft_lstsize(*lst) == 0)
-		return (0);
-	cursor = *lst;
-	while (cursor->next != NULL)
-	{
-		if (cursor->data < cursor->next->data)
 			return (0);
 		cursor = cursor->next;
 	}

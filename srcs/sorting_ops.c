@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorting_ops.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: pingpanu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/06 14:47:34 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/09/19 15:49:22 by user             ###   ########.fr       */
+/*   Created: 2022/09/20 10:12:26 by pingpanu          #+#    #+#             */
+/*   Updated: 2022/09/20 10:12:42 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,6 @@ void	tri_sort(t_stack **a, t_param a_par)
 		swap_a(a);
 	a_par = get_stack_param(a, 0);
 	tri_sort(a, a_par);
-}
-
-void	tri_sort_b(t_stack **b, t_param b_par)
-{
-	if (check_descend(b))
-		return ;
-	if (b_par.min[1] == 1)
-		rotate_b(b);
-	else if (b_par.min[1] == 2)
-		r_rotate_b(b);
-	else
-		swap_b(b);
-	b_par = get_stack_param(b, 0);
-	tri_sort(b, b_par);
 }
 
 void	sorting_ops(t_stack **a, t_stack **b)

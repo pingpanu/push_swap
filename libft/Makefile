@@ -6,7 +6,7 @@
 #    By: pingpanu <pingpanu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/05 23:00:53 by pingpanu          #+#    #+#              #
-#    Updated: 2022/09/09 15:10:31 by pingpanu         ###   ########.fr        #
+#    Updated: 2022/09/20 21:06:06 by pingpanu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,10 @@ SRC = ft_putchar_fd.c \
       ft_strlen.c \
       ft_bzero.c \
       ft_calloc.c \
-      ft_strlen.c \
       ft_strcmp.c \
       ft_strlcpy.c \
+      ft_strjoin.c \
+      ft_strchr.c \
       ft_atoi.c \
       ft_abs.c \
       ft_itoa.c \
@@ -33,7 +34,8 @@ SRC = ft_putchar_fd.c \
       ft_lstdelone.c \
       ft_lstlast.c \
       ft_lstnew.c \
-      ft_lstsize.c
+      ft_lstsize.c \
+      get_next_line.c
 
 OBJ = $(SRC:.c=.o)
 

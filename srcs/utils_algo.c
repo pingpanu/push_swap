@@ -3,37 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   utils_algo.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: pingpanu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/09 15:06:38 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/09/19 16:17:53 by user             ###   ########.fr       */
+/*   Created: 2022/09/20 10:09:38 by pingpanu          #+#    #+#             */
+/*   Updated: 2022/09/20 10:11:18 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "operation.h"
 
-int  get_mid(t_stack *lst, t_param par)
+int	get_mid(t_stack *lst, t_param par)
 {
-    float     mid;
+	float	mid;
 	int		cur;
 
-    mid = (par.max[0] + par.min[0]) / 2;
+	mid = (par.max[0] + par.min[0]) / 2;
 	if ((int)mid != mid)
 		mid += 0.5;
-    cur = lst->data;
-    while (lst != NULL)
-    {
-        if (ft_abs(mid - lst->data) < ft_abs(mid - cur))
-            cur = lst->data;
-        lst = lst->next; 
-    }
-    return (cur);
+	cur = lst->data;
+	while (lst != NULL)
+	{
+		if (ft_abs(mid - lst->data) < ft_abs(mid - cur))
+			cur = lst->data;
+		lst = lst->next;
+	}
+	return (cur);
 }
 
-int		push_back(t_stack **a, t_stack **b)
+int	push_back(t_stack **a, t_stack **b)
 {
-	t_param b_par;
+	t_param	b_par;
 	int		b_mid;
 
 	b_par = get_stack_param(b, 0);

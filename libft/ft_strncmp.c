@@ -1,41 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pingpanu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/20 10:08:26 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/09/20 10:13:07 by pingpanu         ###   ########.fr       */
+/*   Created: 2022/02/28 22:24:03 by pingpanu          #+#    #+#             */
+/*   Updated: 2022/03/08 11:14:39 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	push_a(t_stack **a, t_stack **b)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	t_stack	*push;
+	size_t	i;
 
-	if (!(*b))
+	i = 0;
+	if (n == 0)
 		return (0);
-	push = *b;
-	*b = push->next;
-	push->next = NULL;
-	ft_lstadd_front(a, push);
-	ft_putendl_fd("pa", 1);
-	return (1);
-}
-
-int	push_b(t_stack **a, t_stack **b)
-{
-	t_stack	*push;
-
-	if (!(*a))
-		return (0);
-	push = *a;
-	*a = push->next;
-	push->next = NULL;
-	ft_lstadd_front(b, push);
-	ft_putendl_fd("pb", 1);
-	return (1);
+	while ((s1[i] == s2[i]) && (s1[i] && s2[i]))
+	{
+		if (i == (n - 1))
+			break ;
+		i++;
+	}
+	return ((unsigned char) s1[i] - (unsigned char) s2[i]);
 }

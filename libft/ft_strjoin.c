@@ -1,41 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pingpanu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/20 10:08:26 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/09/20 10:13:07 by pingpanu         ###   ########.fr       */
+/*   Created: 2022/02/28 22:32:21 by pingpanu          #+#    #+#             */
+/*   Updated: 2022/03/05 23:14:04 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	push_a(t_stack **a, t_stack **b)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	t_stack	*push;
+	char	*join;
+	char	*ret;
+	size_t	s1len;
+	size_t	s2len;
 
-	if (!(*b))
-		return (0);
-	push = *b;
-	*b = push->next;
-	push->next = NULL;
-	ft_lstadd_front(a, push);
-	ft_putendl_fd("pa", 1);
-	return (1);
-}
-
-int	push_b(t_stack **a, t_stack **b)
-{
-	t_stack	*push;
-
-	if (!(*a))
-		return (0);
-	push = *a;
-	*a = push->next;
-	push->next = NULL;
-	ft_lstadd_front(b, push);
-	ft_putendl_fd("pb", 1);
-	return (1);
+	if (!s1 || !s2)
+		return (NULL);
+	s1len = ft_strlen(s1);
+	s2len = ft_strlen(s2);
+	join = malloc (sizeof(char) * (s1len + s2len +1));
+	if (!join)
+		return (NULL);
+	ret = join;
+	while (*s1)
+		*join++ = *s1++;
+	while (*s2)
+		*join++ = *s2++;
+	*join = '\0';
+	return (ret);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_param.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: pingpanu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/02 16:00:32 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/09/17 21:34:40 by user             ###   ########.fr       */
+/*   Created: 2022/09/20 09:49:15 by pingpanu          #+#    #+#             */
+/*   Updated: 2022/09/20 10:16:48 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@ static int	get_pos(t_stack *lst, int nbr, int n)
 t_param	get_stack_param(t_stack **lst, int limit)
 {
 	t_param	param;
- 
- 	if (limit != 0)
+
+	if (limit != 0)
 		param.stack_size = limit;
 	else
 	{

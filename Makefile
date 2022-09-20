@@ -6,7 +6,7 @@
 #    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/11 14:49:15 by pingpanu          #+#    #+#              #
-#    Updated: 2022/09/19 16:12:44 by user             ###   ########.fr        #
+#    Updated: 2022/09/20 21:49:28 by pingpanu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,36 +41,50 @@ SRC_NAME = 	push_swap.c \
 			swap.c \
 			rotate.c \
 			r_rotate.c \
+#bonus
+BOS_NAME =	checker_main.c \
+			parse_argv.c \
+			utils_check.c \
+			checker_sort.c \
+			push.c \
+			swap.c \
+			rotate.c \
+			r_rotate.c \
 
-SRCS = $(addprefix $(SDIR), $(SRC_NAME))
 OBJS = $(addprefix $(SDIR), $(SRC_NAME:.c=.o))
+OBJ_BO = $(addprefix $(SDIR), $(BOS_NAME:.c=.o))
 
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	 @ echo "$(YELLOW)Make libft.a library$(DEFCO)"
-	 @ make -C $(LIB)
-	 @ echo "$(GREEN)libft.a created$(DEFCO)"
-	 @ $(CC) $(FLAGS) $(OBJS) -L $(LIB) -lft -I $(INC) -o $(NAME)
-	 @ echo "$(GREEN)$(NAME) created$(DEFCO)" 
+	@ echo "$(YELLOW)Make libft.a library$(DEFCO)"
+	@ make -C $(LIB)
+	@ echo "$(GREEN)libft.a created$(DEFCO)"
+	@ $(CC) $(FLAGS) $^ -L $(LIB) -lft -I $(INC) -o $(NAME)
+	@ echo "$(GREEN)$(NAME) created$(DEFCO)" 
 
 $(SDIR)%.o : $(SDIR)%.c
-	 @ $(CC) $(FLAGS) -c $< -o $@ -I $(INC) 
+	@ $(CC) $(FLAGS) -c $< -o $@ -I $(INC) 
+
+bonus: $(OBJ_BO)
+	@ make -C $(LIB) --silent
+	@ $(CC) $(FLAGS) $^ -L $(LIB) -lft -I $(INC) -o checker 
+	@ echo "$(GREEN)My checker created$(DEFCO)"
 
 clean:
-	 @ make clean -C $(LIB)
-	 @ echo "$(YELLOW)libft.a removed$(DEFCO)"
-	 @ rm $(OBJS) 
-	 @ echo "$(GREEN)Object files removed$(DEFCO)"
+	@ make clean -C $(LIB)
+	@ echo "$(YELLOW)libft.a removed$(DEFCO)"
+	@ rm $(SDIR)*.o 
+	@ echo "$(GREEN)Object files removed$(DEFCO)"
 
 fclean: clean
-	 @ rm -f $(NAME)
-	 @ make fclean -C $(LIB)
-	 @ echo "$(GREEN)$(NAME) removed$(DEFCO)"
+	@ rm -f $(NAME)
+	@ make fclean -C $(LIB)
+	@ echo "$(GREEN)$(NAME) removed$(DEFCO)"
 
 re: fclean all
 
 norm:
-	 @ norminette $(SRCS) $(INC) $(LIB) | grep -v Norme -B1 || true
+	@ norminette $(SRCS) $(INC) $(LIB) | grep -v Norme -B1 || true
 
 .PHONY: all clean fclean res
