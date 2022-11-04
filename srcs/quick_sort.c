@@ -6,7 +6,7 @@
 /*   By: pingpanu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 09:52:25 by pingpanu          #+#    #+#             */
-/*   Updated: 2022/09/20 10:07:47 by pingpanu         ###   ########.fr       */
+/*   Updated: 2022/11/04 21:08:32 by pingpanu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,6 @@ static int	pivot_push_a(t_stack **a, t_stack **b, int chunk_b_size)
 		chunk_a_size += push_a(a, b);
 		b_par = get_stack_param(b, (chunk_b_size - chunk_a_size));
 	}
-	if ((ft_lstsize(*b) + chunk_a_size) != chunk_b_size)
-	{
-		while (rb > 0)
-			rb -= r_rotate_b(b);
-	}
 	return (chunk_a_size);
 }
 
@@ -56,11 +51,6 @@ static int	pivot_push_b(t_stack **a, t_stack **b, int chunk_a_size)
 			ra += rotate_a(a);
 		chunk_b_size += push_b(a, b);
 		a_par = get_stack_param(a, (chunk_a_size - chunk_b_size));
-	}
-	if ((ft_lstsize(*a) + chunk_b_size) != chunk_a_size)
-	{
-		while (ra > 0)
-			ra -= r_rotate_a(a);
 	}
 	return (chunk_b_size);
 }
